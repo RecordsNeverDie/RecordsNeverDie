@@ -53,4 +53,10 @@ router.get("/logout", (req, res) => {
     res.redirect("/login")
 })
 
+router.get('/profile', (req,res) => {
+    res.render('auth/profile', {
+        user: req.user
+    })
+})
+
 module.exports = router

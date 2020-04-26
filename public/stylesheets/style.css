@@ -1,12 +1,28 @@
 body {
   font-weight: 200;
-  font-family: 'Hind Siliguri', sans-serif; }
+  font-family: 'Hind Siliguri', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/vinyl3.jpeg");
+  color: white; }
 
 h1, h2, h3 {
   font-weight: 200; }
 
 .navbar {
-  margin-bottom: 70px; }
+  padding: 30px;
+  margin-bottom: 70px;
+  margin: 0 50px;
+  font-size: 1.2em;
+  font-weight: 700; }
+  .navbar .navbar-brand {
+    font-size: 1.5em; }
+  .navbar li {
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0 10px; }
+    .navbar li :hover {
+      text-decoration: underline; }
+  .navbar .logo-img {
+    margin-right: 10px; }
 
 #errorMsg {
   background-color: red;
@@ -16,5 +32,39 @@ h1, h2, h3 {
   padding: 10px 0;
   margin: 5px 0;
   border-radius: 5px; }
+
+.home {
+  text-align: center; }
+  .home h1 {
+    font-weight: 700;
+    font-size: 6em;
+    padding-top: 250px; }
+  .home p {
+    font-size: 2em; }
+
+.signup {
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .signup h1 {
+    font-weight: 600; }
+  .signup .btn-signup {
+    font-weight: 600; }
+
+.login {
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .login h1 {
+    font-weight: 600; }
+  .login .btn-login {
+    font-weight: 600; }
+
+.form-control {
+  background-color: #3e3e3e;
+  border: none;
+  border-radius: none; }
 
 /*# sourceMappingURL=style.css.map */
