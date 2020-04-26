@@ -6,12 +6,13 @@ const User = require("../models/user.model")
 
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
-
-
+const multer = require('multer')
+const upload = multer({ dest: './public/uploads/' })
 // User signup
 router.get("/signup", (req, res) => res.render("auth/signup"))
-router.post("/signup", (req, res, next) => {
+router.post("/signup", upload.single('imageFile'), (req, res, next) => {
 
+    //req.file.size > 3000000 ? alert('El tamaño de la imagen supera lo permitido.') : console.log('Tamaño de imagen permitido')
     const { name, username, email, password } = req.body
 
     if (!username || !password) {

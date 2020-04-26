@@ -65,6 +65,30 @@ h1, h2, h3 {
 .form-control {
   background-color: #3e3e3e;
   border: none;
-  border-radius: none; }
+  border-radius: none;
+  color: white; }
+
+.profile-container {
+  justify-content: center;
+  padding: 20px;
+  background-color: white;
+  text-align: center; }
+  .profile-container .profile {
+    border: none; }
+  .profile-container .welcome {
+    font-size: 2.5em; }
+
+.options-container {
+  padding: 20px;
+  border-top: 0.5px solid grey;
+  background-color: white; }
+  .options-container h1 {
+    font-size: 2em;
+    font-weight: 600; }
+
+.products {
+  margin: 20px; }
+  .products .product {
+    color: black; }
 
 /*# sourceMappingURL=style.css.map */

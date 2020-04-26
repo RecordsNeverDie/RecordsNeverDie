@@ -5,7 +5,6 @@ body {
   color: white;
 }
 
-
 h1, h2, h3 {
   font-weight: 200;
 }
@@ -92,8 +91,38 @@ h1, h2, h3 {
   background-color: rgb(62, 62, 62);
   border: none;
   border-radius: none;
+  color:white;
 }
 
-.profile-img { 
-  
+.profile-container {
+  justify-content: center;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+
+  .profile {
+    border: none;
+  }
+  .welcome {
+    font-size: 2.5em;
+  }
+}
+
+.options-container {
+  padding: 20px;
+  border-top: 0.5px solid grey;
+  background-color: white;
+
+  h1 {
+    font-size: 2em;
+    font-weight: 600;
+  }
+}
+
+.products {
+  margin: 20px;
+
+  .product {
+    color:black;
+  }
 }
