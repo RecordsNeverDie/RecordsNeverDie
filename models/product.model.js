@@ -10,7 +10,7 @@ const productSchema = new Schema({
     description: String,
     condition: {
         type: String,
-        enum: ['Nuevo', 'Casi nuevo', 'En buen estado', 'Usado', 'Muy usado']
+        enum: ['Nuevo', 'Perfecto Estado', 'Buen Estado', 'Usado']
     },
     location: {
         type: 
