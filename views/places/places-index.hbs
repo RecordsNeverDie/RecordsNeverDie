@@ -1,1 +1,25 @@
-<h1>hola lugares</h1>
+<div class="title">
+    <div class="col text-center">
+        <h2>Tiendas cerca de ti</h2>
+    </div>
+</div>
+  <figure id="myMap"></figure>
+
+<div class="row">
+{{#each places}}
+  <div class="col-md-4">
+    <div class="card border-info">
+      <div class="card-body">
+        <h4 class="card-title text-dark id="placeName" data-id="{{_id}}"">{{name}}</h4>
+    <p class="card-title text-secondary">Género: {{genre}}</p>
+    <p class="card-title text-secondary">Rating: {{rating}} / 5</p>
+    <hr>
+    <a href="/places/details/{{_id}}" class="btn btn-sm btn-outline-info">Ver detalles</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/each}}
+<a href="/places/new"><button type="button" class="btn btn-dark btn-info">Crear nuevo</button></a>
+<a href="/"><button type="button" class="btn btn-dark btn-list">Volver la inicio</button></a>
+</div>

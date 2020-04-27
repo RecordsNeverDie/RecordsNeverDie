@@ -91,4 +91,8 @@ h1, h2, h3 {
   .products .product {
     color: black; }
 
+#myMap {
+  height: 400px;
+  background-color: blue; }
+
 /*# sourceMappingURL=style.css.map */
