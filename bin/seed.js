@@ -103,7 +103,7 @@ const places = [
     {
         name: 'Jazzymás.com',
         genre: 'Variados',
-        rating: '44,7',
+        rating: '4,7',
         location: {
             type: 'Point',
             coordinates: [40.426323, -3.704350]
