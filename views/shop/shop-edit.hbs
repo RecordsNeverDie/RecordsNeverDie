@@ -1,1 +1,60 @@
-<h1>Edit product</h1>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">Editar Producto</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/shop/edit/{{_id}}" method="POST">
+
+                <div class="form-group">
+                    <label for="title-input">Título</label>
+                    <input name="title" type="text" class="form-control" id="title-input" value="{{title}}">
+                </div>
+                <div class="form-group">
+                    <label for="artist-input">Artista</label>
+                    <input name="artist" type="text" class="form-control" id="artist-input" value="{{artist}}">
+                </div>
+                <div class="form-group">
+                    <label for="genre-input">Género</label>
+                    <input name="genre" type="text" class="form-control" id="genre-input" value="{{genre}}">
+                </div>
+                <div class="form-group">
+                    <label for="price-input">Precio</label>
+                    <input name="price" type="text" class="form-control" id="price-input" value="{{price}}">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Descripción</label>
+                    <input name="description" type="text" class="form-control" id="description-input" value="{{description}}">
+                </div>
+                <div class="form-group">
+                    <label for="condition-input">Condición</label>
+                    <select name="condition" class="form-control" id="condition-input" value="{{condition}}">
+                        <option>Seleccionar</option>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Perfecto Estado" selected>Perfecto Estado</option>
+                        <option value="Buen Estado">Buen Estado</option>
+                        <option value="Usado">Usado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location-input">Localización</label>
+                    <input name="latitude" type="text" class="form-control" id="latitude-input" value="{{location.coordinates.[0]}}">
+                    <input name="longitude" type="text" class="form-control" id="longitude-input" value="{{location.coordinates.[1]}}">
+
+                </div>
+                <div class="form-group">
+                    <label for="image-input">Foto de la portada</label>
+                    <input name="picture" type="file" class="form-control inputfile" id="image-input" value="{{picture}}">
+                </div>
+
+                    <button type="submit" class="btn btn-primary btn-danger">Guardar Cambios</button>
+                                    
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -5,12 +5,21 @@
 
     <img src='{{picture}}' alt="album cover" >
     
-
-    <h4>Descripción</h4>
-    <p>{{description}}</p>
-    <p><strong>Género: </strong> {{genre}} | <strong>Estado: </strong> {{condition}} | <strong>Precio: </strong> {{price}}$</p>
+    <h4>{{description}}</h4>
+    <h5><strong>Género: </strong> {{genre}} | <strong>Estado: </strong> {{condition}} | <strong>Precio: </strong> {{price}}$</h5>
     <hr>
-    <p>Vendedor: {{location}}</p>
+    <p>Vendedor: {{location.coordinates.[0]}}, {{location.coordinates.[1]}}</p>
+    <hr>
+    <form method="POST" action="/shop/{{id}}/delete">
+        <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
+    </form>
+    <form method="GET" action="/shop/buy/{{id}}">
+        <button type="submit" class="btn btn-primary btn-success">Comprar</button>
+    </form>
+    <a href="/shop/edit?id={{id}}" class="btn btn-warning">Editar</a>
+    <br>
     <a href="/shop" class="btn btn-dark">Volver a la tienda</a>
+
+    
 
 </div>

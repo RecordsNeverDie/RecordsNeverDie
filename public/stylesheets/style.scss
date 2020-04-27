@@ -121,8 +121,15 @@ h1, h2, h3 {
 
 .products {
   margin: 20px;
+  transition: 0.3s;
 
   .product {
     color:black;
   }
 }
+
+.card-img-top {
+height: 250px;
+object-fit: cover;
+object-position: center;
+} 

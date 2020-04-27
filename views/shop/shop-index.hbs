@@ -3,8 +3,9 @@
         <h2>Tienda</h2>
     </div>
     <div>
-        <a href="/shop/new" class="btn btn-danger">Vende tus vinilos</a>
-        <a href="/shop/edit" class="btn btn-danger">Edita tu producto</a>
+        <a href="/shop/new" class="btn btn-light">Publicar nuevo</a>
+        <a href="/" class="btn btn-light">Volver a Inicio</a>
+
     </div>
 </div>
 
@@ -18,15 +19,9 @@
             <p class="card-text">Género: {{genre}}</p>
             <p class="card-text">Precio: {{price}}$</p>
             <label for="card-text">Condición: {{condition}}</label>
-            {{!-- <select name="park" class="form-control" id="condition-list">
-                <option>Seleccionar</option>
-                <option value="Nuevo">Nuevo</option>
-                <option value="Perfecto Estado">Perfecto Estado</option>
-                <option value="Buen Estado" selected>Buen Estado</option>
-                <option value="Usado">Usado</option>
-            </select> --}}
             <br>
             <a href="/shop/details/{{id}}" class="btn btn-dark">Ver detalles</a>
+            
         </div>
         </div>
     </div>
