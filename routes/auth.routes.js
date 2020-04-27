@@ -7,12 +7,12 @@ const User = require("../models/user.model")
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 const multer = require('multer')
-const upload = multer({ dest: './public/uploads/' })
+const cloudUploader = require('../configs/cloudinary.config')
+
 // User signup
 router.get("/signup", (req, res) => res.render("auth/signup"))
-router.post("/signup", upload.single('imageFile'), (req, res, next) => {
+router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
 
-    //req.file.size > 3000000 ? alert('El tamaño de la imagen supera lo permitido.') : console.log('Tamaño de imagen permitido')
     const { name, username, email, password } = req.body
 
     if (!username || !password) {
@@ -29,7 +29,7 @@ router.post("/signup", upload.single('imageFile'), (req, res, next) => {
             const salt = bcrypt.genSaltSync(bcryptSalt)
             const hashPass = bcrypt.hashSync(password, salt)
 
-            User.create({ name, username, email, password: hashPass })
+            User.create({ name, username, email, password: hashPass, picture: req.file.url })
                 .then(() => res.redirect("/"))
                 .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
         })

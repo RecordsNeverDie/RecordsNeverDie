@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col">
+        <h2>Más info sobre {{name}}</h2>
+    </div>
+</div>
+
+<div class="card" style="width: 50rem;">
+    <div class="card-header text-dark">
+        <h5><strong>{{name}}</strong></h5>
+    </div>
+    <ul class="list-group list-group-flush text-dark">
+        <li class="list-group-item"><strong>Género: </strong>{{genre}}</li>
+        <li class="list-group-item"><strong>Rating: </strong>{{rating}} / 5</li>
+        <li class="list-group-item"><strong>Dirección: </strong>{{location.coordinates.[0]}},{{location.coordinates.[1]}}</li>
+        <li class="list-group-item"><strong>Descripción: </strong>{{description}}</li>
+    </ul>
+</div>
+<a href="/places/edit?id={{_id}}"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
+  <form action="/places/{{_id}}/delete" method="POST">
+      <button class="btn btn-danger btn-sm" type="submit">Borrar</button>
+  </form>
+<a href="/places"><button type="button" class="btn btn-dark btn-back-list">Volver atrás</button></a>
