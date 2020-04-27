@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">Nuevo Producto</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/shop/new" method="POST">
+
+                <div class="form-group">
+                    <label for="title-input">Título</label>
+                    <input name="title" type="text" class="form-control" id="title-input">
+                </div>
+                <div class="form-group">
+                    <label for="artist-input">Artista</label>
+                    <input name="artist" type="text" class="form-control" id="artist-input">
+                </div>
+                <div class="form-group">
+                    <label for="genre-input">Género</label>
+                    <input name="genre" type="text" class="form-control" id="genre-input">
+                </div>
+                <div class="form-group">
+                    <label for="price-input">Precio</label>
+                    <input name="price" type="text" class="form-control" id="price-input">
+                </div>
+                <div class="form-group">
+                    <label for="description-input">Descripción</label>
+                    <input name="description" type="text" class="form-control" id="description-input">
+                </div>
+                <div class="form-group">
+                    <label for="condition-input">Condición</label>
+                    {{!-- <input name="condition" type="text" class="form-control" id="condition-input">  --}}
+                <select name="condition" class="form-control" id="condition-input">
+                    <option>Seleccionar</option>
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Perfecto Estado">Perfecto Estado</option>
+                    <option value="Buen Estado">Buen Estado</option>
+                    <option value="Usado">Usado</option>
+                </select>
+                
+                
+                
+                </div>
+                <div class="form-group">
+                    <label for="location-input">Localización</label>
+                    <input name="location" type="text" class="form-control" id="location-input">
+                </div>
+                <div class="form-group">
+                    <label for="image-input">Foto de la portada</label>
+                    <input name="picture" type="file" class="form-control inputfile" id="image-input">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Vender Producto</button>
+            </form>
+        </div>
+
+    </div>
+</div>

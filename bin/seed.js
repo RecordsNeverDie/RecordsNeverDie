@@ -46,7 +46,7 @@ const salt = bcrypt.genSaltSync(bcryptSalt)
 //         console.log(`${allUsers} created`)
 //         mongoose.connection.close()        
 //     })
-//     .catch(error => console.log(`Ha ocurrido un error: ${err}`))
+//     .catch(err => console.log(`Ha ocurrido un error: ${err}`))
 
 
 // const places = [
@@ -111,7 +111,7 @@ const salt = bcrypt.genSaltSync(bcryptSalt)
 //         console.log(`${allPlaces} created`)
 //         mongoose.connection.close()        
 //     })
-//     .catch(error => console.log(`Ha ocurrido un error: ${err}`))
+//     .catch(err => console.log(`Ha ocurrido un error: ${err}`))
 
 
 const products = [
@@ -120,12 +120,72 @@ const products = [
         artist: 'Queen',
         genre: 'Rock',
         price: '80',
-        picture: '',
+        picture: '/images/album-covers/queen-live-at-wembley-86.jpg',
         description: 'Artículo con señales de uso y marcas exteriores',
         condition: 'Usado',
         location: {
             type: 'Point',
-            coordinates: [40.425158,-3.698136]
+            coordinates: [40.425158, -3.698136]
+        }
+    }, {
+        title: 'Abba',
+        artist: 'Abba',
+        genre: 'Pop',
+        price: '15',
+        picture: '/images/album-covers/abba.jpeg',
+        description: 'Greatest Abba album of all time',
+        condition: 'Buen Estado',
+        location: {
+            type: 'Point',
+            coordinates: [40.493000, - 3.965941]
+        }
+    }, {
+        title: 'Ballroom Stories',
+        artist: 'Waldeck',
+        genre: 'Trip-hop',
+        price: '30',
+        picture: '/images/album-covers/ballroomstorieswaldeck.jpg',
+        description: 'Great combination of beats and jazz',
+        condition: 'Usado',
+        location: {
+            type: 'Point',
+            coordinates: [40.471136, - 3.869075]
+        }
+    }, {
+        title: 'Beatles VI',
+        artist: 'Beatles',
+        genre: 'Pop',
+        price: '55',
+        picture: '/images/album-covers/beatlesvi.jpeg',
+        description: 'Nice hits from the best band on the planet, little scratches on the vinyl',
+        condition: 'Usado',
+        location: {
+            type: 'Point',
+            coordinates: [40.435971, -3.706684]
+        }
+    }, {
+        title: 'Greatest hits',
+        artist: 'Bobby Vinton',
+        genre: 'Pop',
+        price: '10',
+        picture: '/images/album-covers/Bobby Vinton.jpg',
+        description: 'Classic, sealed',
+        condition: 'Nuevo',
+        location: {
+            type: 'Point',
+            coordinates: [40.435971, -3.706694]
+        }
+    }, {
+        title: 'Electro-shock Blues',
+        artist: 'Eels',
+        genre: 'Alternative',
+        price: '55',
+        picture: '/images/album-covers/electroshockblues.jpg',
+        description: "Melancholic and deep songs from Mr. E's most personal work, first edition",
+        condition: 'Perfecto Estado',
+        location: {
+            type: 'Point',
+            coordinates: [40.435979, -3.706684]
         }
     }
 ]
@@ -135,6 +195,6 @@ Product.create(products)
         console.log(`${allProducts} created`)
         mongoose.connection.close()        
     })
-    .catch(error => console.log(`Ha ocurrido un error: ${err}`))
+    .catch(error => console.log(`Ha ocurrido un error: ${error}`))
 
     
