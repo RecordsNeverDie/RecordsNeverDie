@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router()
+const ensureLogin = require('connect-ensure-login')
 const Place = require('../models/place.model')
 const User = require('../models/user.model')
-
 
 router.get('/', (req,res) => {
     Place.find()
@@ -21,7 +21,7 @@ router.get('/details/:id', (req, res, next) => {
 })
 
 
-router.get('/new', (req, res, next) => res.render('places/places-new'))
+router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => res.render('places/places-new'))
 router.post('/new', (req,res, next) => {
 
     let location = {
@@ -42,7 +42,7 @@ router.post('/new', (req,res, next) => {
 })
 
 
-router.get('/edit', (req, res, next) => {
+router.get('/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const placeId = req.query.id 
 
     Place.findById(placeId)
@@ -72,7 +72,7 @@ router.post('/edit/:id', (req, res, next) => {
 })
 
 
-router.post('/:id/delete', (req, res, next) => {
+router.post('/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const placeId = req.params.id
 
     Place.findByIdAndRemove(placeId)
