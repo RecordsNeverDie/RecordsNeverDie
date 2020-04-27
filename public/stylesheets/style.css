@@ -93,6 +93,24 @@ h1, h2, h3 {
 
 #myMap {
   height: 400px;
-  background-color: blue; }
+  background-color: grey; }
+
+.place {
+  margin-bottom: 25px; }
+  .place h4 {
+    text-align: center;
+    font-weight: 600; }
+
+.btn-new {
+  font-weight: 600;
+  margin: 10px;
+  margin-bottom: 50px;
+  font-size: 1.1em; }
+
+.btn-back {
+  font-weight: 600;
+  margin: 10px;
+  font-size: 1.1em;
+  margin-bottom: 50px; }
 
 /*# sourceMappingURL=style.css.map */
