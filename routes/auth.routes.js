@@ -1,13 +1,12 @@
 const express = require("express")
 const router = express.Router()
 const passport = require("passport")
-
-const User = require("../models/user.model")
-
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 const multer = require('multer')
 const cloudUploader = require('../configs/cloudinary.config')
+const ensureLogin = require('connect-ensure-login')
+const User = require("../models/user.model")
 
 // User signup
 router.get("/signup", (req, res) => res.render("auth/signup"))
@@ -54,7 +53,7 @@ router.get("/logout", (req, res) => {
     res.redirect("/login")
 })
 
-router.get('/profile', (req,res) => {
+router.get('/profile', ensureLogin.ensureLoggedIn(), (req,res) => {
     res.render('auth/profile', {
         user: req.user
     })

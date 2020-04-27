@@ -1,9 +1,8 @@
 <div class="container">
-
     <div class="row">
-
         <div class="col-md-6">
-            <h1 style="font-weight: 100">Nuevo Producto</h1>
+            <h1 class="title-view">Añade un nuevo producto</h1>
+            <img src="/images/clinton-vinyl.jpg" alt="Clinton with vinyls">
         </div>
 
         <div class="col-md-6">
@@ -41,18 +40,16 @@
                 </select>
                 </div>
                 <div class="form-group">
-                    <label for="location-input">Localización</label>
-                    <input name="latitude" type="text" class="form-control" id="latitude-input">
-                    <input name="longitude" type="text" class="form-control" id="longitude-input">
+                    <label for="location-input">Dirección</label>
+                    <input name="latitude" type="text" class="form-control input-localization" placeholder="latitude" id="latitude-input">
+                    <input name="longitude" type="text" class="form-control input-localization" placeholder="longitude" id="longitude-input">
                 
                 </div>
-                <div class="form-group">
-                    <label for="image-input">Foto de la portada</label>
+                <div class="form-group custm-input-file">
+                    <label for="image-input">Foto del producto</label>
                     <input name="picture" type="file" class="form-control inputfile" id="image-input">
                 </div>
-
-
-                <button type="submit" class="btn btn-dark">Vender Producto</button>
+                <button type="submit" class="btn btn-info btn-block btn-block">Publicar producto</button>
             </form>
         </div>
 

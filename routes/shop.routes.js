@@ -3,6 +3,7 @@ const router = express.Router()
 const multer = require('multer')
 const cloudUploader = require('../configs/cloudinary.config')
 
+const ensureLogin = require('connect-ensure-login')
 const Product = require("../models/product.model")
 
 router.get('/', (req, res) => {
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
         .catch(err => console.log("Ha habido un error!", err))    
 })
 
-router.get("/new", (req, res) => res.render("shop/shop-new"))
+router.get("/new", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-new"))
 
 router.post("/new", cloudUploader.single('picture'), (req, res, next) => {
 
@@ -25,7 +26,7 @@ router.post("/new", cloudUploader.single('picture'), (req, res, next) => {
     
 })
 
-router.get("/edit", (req, res) => {
+router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
     Product.findById(req.query.id)
         .then(oneProduct => res.render('shop/shop-edit', oneProduct))
         .catch(err => console.log(`An error ocurred updating the place: ${err}`))
@@ -73,13 +74,13 @@ router.get("/details/:id", (req, res) => {
             })
     ) 
     
-    router.post('/:id/delete', (req, res, next) => {
+    router.post('/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
         Product.findByIdAndRemove(req.params.id)
             .then(() => res.redirect('/shop'))
             .catch(err => console.log(`An error ocurred deleting the product: ${err}`))
     })
 
-    router.get("/buy/:id", (req, res) => res.render("shop/shop-buy"))
+    router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-buy"))
 
 })
 
