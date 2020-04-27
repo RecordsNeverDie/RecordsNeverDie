@@ -96,6 +96,7 @@ h1, h2, h3 {
   height: 250px;
   object-fit: cover;
   object-position: center; }
+
 #myMap {
   height: 400px;
   background-color: grey; }
