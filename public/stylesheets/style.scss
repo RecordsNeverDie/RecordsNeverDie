@@ -64,7 +64,6 @@ h1, h2, h3 {
   }
 }
 
-
 .signup {
   margin: 50px auto;
   border-radius: 15px;
@@ -92,11 +91,20 @@ h1, h2, h3 {
   border: none;
   border-radius: none;
   color:white;
+
+}
+
+.form-control {
+  background-color: white;
+  border: none;
+  border-radius: none;
+  color:black;
+
 }
 
 .profile-container {
-  justify-content: left;
-  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
 
   .profile {
     border: none;
@@ -106,8 +114,10 @@ h1, h2, h3 {
   }
 }
 
-.options-container {
+.option-container {
 padding: 20px;
+margin: 20px;
+
 }
 
 .products {
@@ -123,13 +133,13 @@ padding: 20px;
 }
 
 .card-img-top {
-height: 250px;
+height: 200px;
 object-fit: cover;
 object-position: center;
 } 
 
 #myMap {
-  height: 400px;
+  width: 400px;
   background-color: grey;
 }
 
@@ -160,5 +170,10 @@ object-position: center;
   margin-bottom: 15px;
 }
 
+.product-index{
 
+  img {
+    width: 400px;
+  }
 
+}

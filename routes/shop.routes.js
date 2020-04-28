@@ -2,14 +2,13 @@ const express = require("express")
 const router = express.Router()
 const multer = require('multer')
 const cloudUploader = require('../configs/cloudinary.config')
-
 const ensureLogin = require('connect-ensure-login')
 const Product = require("../models/product.model")
 
 router.get('/', (req, res) => {
 
     Product.find()
-        .then(allProducts => res.render('shop/shop-index', { allProducts }))
+        .then(product => res.render('shop/shop-index', { product, user: req.user }))
         .catch(err => console.log("Ha habido un error!", err))    
 })
 
@@ -21,7 +20,7 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
     const { title, artist, genre, price, picture, description, condition, location } = req.body
 
     Product.create({ title, artist, genre, price, picture: req.file.url, description, condition, location })
-        .then(() => res.redirect('/shop'))
+        .then(() => res.redirect('/shop', { user: req.user}))
         .catch(err => console.log("Hubo un error", err))
     
 })

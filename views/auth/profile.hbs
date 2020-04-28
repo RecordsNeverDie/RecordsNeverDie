@@ -1,4 +1,4 @@
-<div class="row profile-container">
+<div class="row profile-container justify-content-center">
     <div class="col-md-3">
         <div class="card profile" style="width: 18em">
             <img class="card-img-top" src="{{user.picture}}" alt="Profile picture">
@@ -9,20 +9,32 @@
     </div>
 
 
-{{!-- <div class="row options-container"> --}}
+<div class="row options-container justify-content-center">
     <div class="col-md-3 option-container">
-        <h1 class="text-dark text-center">Tiendas cerca de ti</h1>
-        <a href="/places"><button type="button" class="btn btn-secondary btn-lg">Ver</button></a>
+        <h1 class="text-light text-center">Tiendas añadidas</h1>
+        <select name="places" class="form-control profile" id="places-list">
+            <option>Ver todas</option>
+            {{#each places}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+          </select>
+        <a href="/places"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
     </div>
 
     <div class="col-md-3 option-container">
-        <h1 class="text-dark text-center">Vende tus vinilos</h1>
-  <a href="/shop"><button type="button" class="btn btn-secondary btn-lg ">Vender</button></a>
+        <h1 class="text-light text-center">Vende tus vinilos</h1>
+            <select name="places" class="form-control profile" id="places-list">
+            <option>Mis productos</option>
+            {{#each products}}
+            <option value="{{_id}}">{{title}}</option>
+            {{/each}}
+          </select>
+  <a href="/shop"><button type="button" class="btn btn-back btn-light btn-lg">Vender</button></a>
     </div>
 
     <div class="col-md-3 option-container">
-        <h1 class="text-dark text-center">Añade tu album favorito</h1>
-        <a href="/music"><button type="button" class="btn btn-secondary btn-lg justify-content-center">Añadir</button></a>
+        <h1 class="text-light text-center">Añade tu album favorito</h1>
+        <a href="/music"><button type="button" class="btn btn-back btn-light btn-lg">Escuchar</button></a>
     </div>
-{{!-- </div> --}}
+</div>
 </div>

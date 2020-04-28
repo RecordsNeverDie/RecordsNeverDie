@@ -1,30 +1,32 @@
-<div class="container coasters-index">
-
-    <h1 class="title-view">{{product.title}}</h1>
-
-
+<div class="row">
+    <div class="col-md">
+        <h2 class="title-view">Más info sobre: {{product.title}}</h2>
+    </div>
+</div>
+<div></div>
+<div class="container product-index">
     <img src='{{product.picture}}' alt="album cover" >
     
-    <h4>{{product.description}}</h4>
-    <h5><strong>Género: </strong> {{product.genre}} | <strong>Estado: </strong> {{product.condition}} | <strong>Precio: </strong> {{product.price}}$</h5>
-    <hr>
-    <p>Vendedor: {{product.location.coordinates.[0]}}, {{product.location.coordinates.[1]}}</p>
-    <hr>
+    <h1 class="title-view">{{product.title}}</h1>
+    <h5><strong>Descripción: </strong> {{product.description}}</h5>
+    <h5><strong>Género: </strong> {{product.genre}}</h5>
+    <h5><strong>Condición: </strong> {{product.condition}}</h5>
+    <h5><strong>Precio: </strong> {{product.price}}$</h5>
+    <h5><strong>Vendedor:</strong> {{product.location.coordinates.[0]}}, {{product.location.coordinates.[1]}}</h5>
     {{#if user}}
-    <form method="POST" action="/shop/{{product.id}}/delete">
-        <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
-    </form>
     <form method="GET" action="/shop/buy/{{product.id}}">
         <button type="submit" class="btn btn-primary btn-success">Comprar</button>
     </form>
     <a href="/shop/edit?id={{product.id}}" class="btn btn-warning">Editar</a>
     <br>
+    <form method="POST" action="/shop/{{product.id}}/delete">
+        <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
+    </form>
     {{/if}}
     {{!-- {{#if !user}}
-    <p>Haz log in para comprar el producto</p>
+    <h2>Debes estar registrado para poder comprar, o publicar tus productos</h2>
     {{/if}} --}}
-    <a href="/shop" class="btn btn-dark">Volver a la tienda</a>
-
-    
-
 </div>
+    <a href="/shop" class="btn btn-back btn-light">Volver a la tienda</a>
+
+

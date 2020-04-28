@@ -2,15 +2,12 @@
     <div class="col text-center">
         <h1 class="title-view">Tienda</h>
     </div>
-    <div>
-        <a href="/shop/new" class="btn btn-light">Publicar nuevo</a>
-        <a href="/" class="btn btn-light">Volver a Inicio</a>
 
-    </div>
+
 </div>
 
 <div class="row">
-{{#each allProducts}}
+{{#each product}}
     <div class="col-md-3 products">
         <div class="card product" style="width: 18rem;">
         <img class="card-img-top" src="{{picture}}" alt="Foto vinyl">
@@ -27,4 +24,8 @@
     </div>
 {{/each}}
 </div>
+{{#if user}}
+<a href="/shop/new" class="btn btn-new btn-light">Publicar nuevo</a>
+{{/if}}
+<a href="/" class="btn btn-back btn-light">Volver a Inicio</a>
     

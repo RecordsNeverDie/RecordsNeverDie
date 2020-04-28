@@ -68,16 +68,23 @@ h1, h2, h3 {
   border-radius: none;
   color: white; }
 
+.form-control {
+  background-color: white;
+  border: none;
+  border-radius: none;
+  color: black; }
+
 .profile-container {
-  justify-content: left;
-  background-color: white; }
+  border-radius: 10px;
+  padding: 40px; }
   .profile-container .profile {
     border: none; }
   .profile-container .welcome {
     font-size: 2.5em; }
 
-.options-container {
-  padding: 20px; }
+.option-container {
+  padding: 20px;
+  margin: 20px; }
 
 .products {
   margin: 20px;
@@ -88,12 +95,12 @@ h1, h2, h3 {
     font-weight: 600; }
 
 .card-img-top {
-  height: 250px;
+  height: 200px;
   object-fit: cover;
   object-position: center; }
 
 #myMap {
-  height: 400px;
+  width: 400px;
   background-color: grey; }
 
 .place {
@@ -116,5 +123,8 @@ h1, h2, h3 {
 
 .input-localization {
   margin-bottom: 15px; }
+
+.product-index img {
+  width: 400px; }
 
 /*# sourceMappingURL=style.css.map */

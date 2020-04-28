@@ -6,7 +6,7 @@ const User = require('../models/user.model')
 
 router.get('/', (req,res) => {
     Place.find()
-    //.populate('user_id')
+    .populate('user_id')
     .then(allPlaces => res.render('places/places-index', {places: allPlaces}))
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
@@ -16,7 +16,7 @@ router.get('/details/:id', (req, res, next) => {
     const placeId = req.params.id 
 
     Place.findById(placeId)
-    .then(onePlace => res.render('places/places-details', onePlace))
+    .then(place => res.render('places/places-details', {place, user: req.user}))
     .catch(err => console.log(`Ha ocurrido un error viendo los detalles del lugar: ${err}`)) 
 })
 
@@ -34,7 +34,8 @@ router.post('/new', (req,res, next) => {
         genre: req.body.genre,
         rating: req.body.rating,
         description: req.body.description,
-        location
+        location,
+        user_id: user
     })
     Place.create(newPlace)
     .then(() => res.redirect('/places'))
