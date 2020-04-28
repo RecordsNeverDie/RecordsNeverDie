@@ -1,8 +1,10 @@
 const express = require("express")
 const router = express.Router()
+const multer = require('multer')
+const cloudUploader = require('../configs/cloudinary.config')
+
 const ensureLogin = require('connect-ensure-login')
 const Product = require("../models/product.model")
-const User = require("../models/user.model")
 
 router.get('/', (req, res) => {
 
@@ -13,12 +15,12 @@ router.get('/', (req, res) => {
 
 router.get("/new", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-new"))
 
-router.post("/new", (req, res, next) => {
+router.post("/new", cloudUploader.single('picture'), (req, res, next) => {
 
     console.log(req.body)
     const { title, artist, genre, price, picture, description, condition, location } = req.body
 
-    Product.create({ title, artist, genre, price, picture, description, condition, location })
+    Product.create({ title, artist, genre, price, picture: req.file.url, description, condition, location })
         .then(() => res.redirect('/shop'))
         .catch(err => console.log("Hubo un error", err))
     
@@ -30,10 +32,8 @@ router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
         .catch(err => console.log(`An error ocurred updating the place: ${err}`))
 })
 
-router.post('/edit/:id', (req, res, next) => {
+router.post('/edit/:id', cloudUploader.single('picture'), (req, res, next) => {
     
-    //const { title, artist, genre, price, picture, description, condition, location } = req.body
-
     let location = {
         type: 'Point',
         coordinates: [req.body.longitude, req.body.latitude]
@@ -44,14 +44,20 @@ router.post('/edit/:id', (req, res, next) => {
         artist: req.body.artist,
         genre: req.body.genre,
         price: req.body.price,
+        picture: req.file.url,
         description: req.body.description,
         condition: req.body.condition,
         location: location
     }
     
-    if (req.body.picture) {
-        newProduct[picture] = req.body.picture
-    }
+    //  if (req.body.picture) {
+    //      newProduct[picture] = req.body.picture
+    //  }
+
+
+    //  if (req.file.url) {
+    //     newProduct[picture] = req.file.url
+    //  }
 
     Product.findByIdAndUpdate(req.params.id, newProduct, { new: true })
         .then(() => res.redirect("/shop"))
