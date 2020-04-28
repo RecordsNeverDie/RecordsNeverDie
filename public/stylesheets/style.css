@@ -128,4 +128,17 @@ h1, h2, h3 {
 .input-localization {
   margin-bottom: 15px; }
 
+.message-field {
+  height: 150px; }
+
+.buying {
+  text-align: center; }
+  .buying img {
+    width: 50%;
+    margin: 20px 0; }
+
+.shop-items {
+  background-color: red;
+  width: 150%; }
+
 /*# sourceMappingURL=style.css.map */
