@@ -73,9 +73,11 @@ router.get("/details/:id", (req, res) => {
             .catch(err => console.log(`An error ocurred deleting the product: ${err}`))
     })
 
-    router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-buy"))
-
+    router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => /*res.render("shop/shop-buy"))*/ {
+        Product.findById(req.params.id)
+            .then(buyProduct => res.render('shop/shop-buy', { buyProduct }))
+            .catch(err => console.log(`An error ocurred updating the place: ${err}`))
+    })
 })
-
 
 module.exports = router
