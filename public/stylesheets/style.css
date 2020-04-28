@@ -100,7 +100,8 @@ h1, h2, h3 {
   object-position: center; }
 
 #myMap {
-  width: 400px;
+  width: 600px;
+  height: 400px;
   background-color: grey; }
 
 .place {

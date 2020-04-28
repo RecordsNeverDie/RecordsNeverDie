@@ -15,7 +15,7 @@
         <li class="list-group-item"><strong>Descripción: </strong>{{place.description}}</li>
     </ul>
 </div>
-{{#if user}}
+{{#if matchAuthor}}
 <a href="/places/edit?id={{place.id}}"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
   <form action="/places/{{place.id}}/delete" method="POST">
       <button class="btn btn-danger btn-sm" type="submit">Borrar</button>
