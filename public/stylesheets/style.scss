@@ -14,6 +14,18 @@ h1, h2, h3 {
   font-size: 2.5em;
 
 }
+
+#errorMsg {
+  background-color: red;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+// ---- NAVIGATION ------
 .navbar {
   padding: 30px;
   margin-bottom: 70px;
@@ -40,16 +52,7 @@ h1, h2, h3 {
   }
 }
 
-#errorMsg {
-  background-color: red;
-  color: white;
-  font-weight: 600;
-  text-align: center;
-  padding: 10px 0;
-  margin: 5px 0;
-  border-radius: 5px;
-}
-
+// --- HOME ----
 .home {
   text-align: center;
 
@@ -63,7 +66,7 @@ h1, h2, h3 {
     font-size: 2em;
   }
 }
-
+// --- AUTH ------
 .signup {
   margin: 50px auto;
   border-radius: 15px;
@@ -94,14 +97,6 @@ h1, h2, h3 {
 
 }
 
-.form-control {
-  background-color: white;
-  border: none;
-  border-radius: none;
-  color:black;
-
-}
-
 .profile-container {
   border-radius: 10px;
   padding: 40px;
@@ -117,45 +112,61 @@ h1, h2, h3 {
 .option-container {
 padding: 20px;
 margin: 20px;
-
 }
 
-.products {
-  margin: 20px;
-  transition: 0.3s;
+// ------ SHOP -------
+.shop-index {
+  padding: 30px;
 
-  .product {
-    color:black;
-  }
-  .btn-product {
-    font-weight: 600;
+  .products {
+    margin: 15px;
+    background-color: none;
+    
+    .card-product {
+      color: black;
+      background-color: white;
+      justify-content: center;
+    }
+    .btn-product {
+      font-weight: 600;
+    }
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+    } 
   }
 }
+  .product-details {
+    margin-top: 50px;
 
-.card-img-top {
-height: 200px;
-object-fit: cover;
-object-position: center;
-} 
+    h4 {
+      margin: 20px;
+    }
+    .btn-buy{
+      text-transform: uppercase;
+    }
 
+    // .details {
+    //   justify-content: space-around;
+    //   align-items: center;
+    //   align-content: space-between;
+    // }
+  }
+
+
+// -- PLACES --
 #myMap {
-  width: 600px;
-  height: 400px;
+  justify-content: center;
+  width: 800px;
+  height: 300px;
   background-color: grey;
 }
 
-.details {
-  justify-content: space-around;
-  align-items: center;
-  align-content: space-between;
-}
 
-.square {
-  height: 400px;
-  width: 400px;
-  background-color: grey;
-  margin-left: 150px;
-}
+
+
+
 
 .place {
   margin-bottom: 25px;

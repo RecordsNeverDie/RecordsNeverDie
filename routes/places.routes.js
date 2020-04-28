@@ -6,7 +6,7 @@ const User = require('../models/user.model')
 
 router.get('/', (req,res) => {
     Place.find()
-    .populate('creator')
+    //.populate('creator')
     .then(allPlaces => {
         console.log(allPlaces)
         res.render('places/places-index', {places: allPlaces, user: req.user})})
@@ -20,11 +20,14 @@ router.get('/details/:id', (req, res, next) => {
     Place.findById(placeId)
     .populate('creator')
     .then(place => {
-        if(req.user && place.creator._id === req.user._id){
-                place.matchAuthor = true  
+        let isAuthor = false;
+        console.log('este es el req.user.id', req.user._id)
+        if(req.user && place.creator && place.creator._id === req.user._id){
+            console.log("entra en la condición")
+               isAuthor = true  
         }
  
-     res.render('places/places-details', {place, user: req.user})
+     res.render('places/places-details', {place, user: req.user.id, isAuthor})
 
     })
     .catch(err => console.log(`Ha ocurrido un error viendo los detalles del lugar: ${err}`)) 

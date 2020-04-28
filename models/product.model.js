@@ -8,6 +8,7 @@ const productSchema = new Schema({
     price: Number,
     picture: String,
     description: String,
+    creator: {type: Schema.Types.ObjectId, ref: 'User'},
     condition: {
         type: String,
         enum: ['Nuevo', 'Perfecto Estado', 'Buen Estado', 'Usado']

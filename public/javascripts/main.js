@@ -11,13 +11,13 @@ window.onload = () => {
         myMap = new google.maps.Map(document.getElementById('myMap'), {
             zoom: 15,
             center,
-            styles: mapStyles.retro
+            styles: mapStyles.silver
         })
     
          getPin('/places/api')
     }
 
-    // if (document.querySelector('#myMap')) {
+    // if (document.querySelector('#myMapProducts')) {
 
     //     myMap = new google.maps.Map(document.getElementById('myMap'), {
     //         zoom: 15,
@@ -49,3 +49,24 @@ function getPin(apiUrl) {
         })
         .catch(error => console.log(error))
 }
+
+//products
+// function getPin(apiUrl) {
+//     axios
+//         .get(apiUrl)
+//         .then(productsFromApi => {
+//             const products = productsFromApi.data
+//             products.forEach(elm => {
+//                 let center = {
+//                     lat: elm.location.coordinates[0],
+//                     lng: elm.location.coordinates[1]
+//                 }
+//                 new google.maps.Marker({
+//                     position: center,
+//                     map: myMap,
+//                     title: elm.name
+//                 })
+//             })
+//         })
+//         .catch(error => console.log(error))
+// }

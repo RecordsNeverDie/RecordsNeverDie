@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col">
+    <div class="col-md">
         <h2>Más info sobre {{place.name}}</h2>
     </div>
 </div>
@@ -10,12 +10,12 @@
     </div>
     <ul class="list-group list-group-flush text-dark">
         <li class="list-group-item"><strong>Género: </strong>{{place.genre}}</li>
-        <li class="list-group-item"><strong>Rating: </strong>{{place.rating}} / 5</li>
+        <li class="list-group-item"><strong>Rating: </strong>{{place.rating}}</li>
         <li class="list-group-item"><strong>Dirección: </strong>{{place.location.coordinates.[0]}},{{location.coordinates.[1]}}</li>
         <li class="list-group-item"><strong>Descripción: </strong>{{place.description}}</li>
     </ul>
 </div>
-{{#if matchAuthor}}
+{{#if isAuthor}}
 <a href="/places/edit?id={{place.id}}"><button type="button" class="btn btn-success btn-sm">Editar</button></a>
   <form action="/places/{{place.id}}/delete" method="POST">
       <button class="btn btn-danger btn-sm" type="submit">Borrar</button>

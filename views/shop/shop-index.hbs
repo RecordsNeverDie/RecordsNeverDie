@@ -1,28 +1,27 @@
+<div class="row shop-index">
 <div class="title">
-    <div class="col text-center">
-        <h1 class="title-view">Tienda</h>
+    <div class="col-md text-center">
+        <h1 class="title-view">Compra y vende tus vinilos</h>
     </div>
-
-
 </div>
 
 <div class="row">
 {{#each product}}
     <div class="col-md-3 products">
-        <div class="card product" style="width: 18rem;">
+        <div class="card-product" style="width: 18rem;">
         <img class="card-img-top" src="{{picture}}" alt="Foto vinyl">
         <div class="card-body">
-            <h5 class="card-title">{{title}}<hr>{{artist}}</h5>
+            <h5 class="card-title">{{title}}</h5>
+            <h5 class="card-title">{{artist}}</h5>
+            <p class="card-text">Precio: {{price}}€</p>
+            <p for="card-text">Condición: {{condition}}</p>
             <p class="card-text">Género: {{genre}}</p>
-            <p class="card-text">Precio: {{price}}$</p>
-            <label for="card-text">Condición: {{condition}}</label>
-            <br>
-            <a href="/shop/details/{{id}}" class="btn btn-dark">Ver detalles</a>
-            
+            <a href="/shop/details/{{id}}" class="btn btn-block btn-product btn-dark">Ver detalles</a>
         </div>
         </div>
     </div>
 {{/each}}
+</div>
 </div>
 {{#if user}}
 <a href="/shop/new" class="btn btn-new btn-light">Publicar nuevo</a>

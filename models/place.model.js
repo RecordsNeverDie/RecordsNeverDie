@@ -6,7 +6,7 @@ const placeSchema = new Schema({
     genre: String,
     rating: String,
     description: String,
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    creator: {type: Schema.Types.ObjectId, ref: 'User'},
     location: {
         type: 
         { type: String

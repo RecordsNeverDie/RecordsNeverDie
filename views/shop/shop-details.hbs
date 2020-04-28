@@ -1,37 +1,36 @@
-<div class="container coasters-index">
-
-    <h1 class="title-view">{{product.title}}</h1>
-
+<div class="container product-details">
+    
     <div class="row details">
-        <div class="col-md-6">
-            <img src='{{product.picture}}' alt="album cover">
+        <div class="col-md img-detail">
+            <img class="img-detail" src='{{product.picture}}' alt="album cover">
+        </div>
+
+        <div class="col-md">
+            <h2 class="title-view">{{product.title}}</h2>
+            <h5><strong>Artista: </strong> {{product.artist}}</h5>
+            <h5><strong>Descripción: </strong> {{product.description}}</h5>
+            <h5><strong>Género: </strong> {{product.genre}}</h5>
+            <h5><strong>Condición: </strong> {{product.condition}}</h5>
+            <h5><strong>Precio: </strong> {{product.price}}$</h5>
+            <a href="/shop/edit?id={{product.id}}" class="btn btn-light">Editar</a>
+            <form method="POST" action="/shop/{{product.id}}/delete">
+                <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
+            </form> 
         </div>
 
         <div class="col-md-6">
-            <figure id="myMap" class="square"></figure>
+            <div class="col">
+            <h4><strong>Ubicación del vendedor</strong></h4>
+                <figure id="myMap" class="shop-map"></figure>
+            </div>
         </div>
     </div>
 
-    
-    <h1 class="title-view">{{product.title}}</h1>
-    <h5><strong>Descripción: </strong> {{product.description}}</h5>
-    <h5><strong>Género: </strong> {{product.genre}}</h5>
-    <h5><strong>Condición: </strong> {{product.condition}}</h5>
-    <h5><strong>Precio: </strong> {{product.price}}$</h5>
-    <h5><strong>Vendedor:</strong> {{product.location.coordinates.[0]}}, {{product.location.coordinates.[1]}}</h5>
     {{#if user}}
     <form method="GET" action="/shop/buy/{{product.id}}">
-        <button type="submit" class="btn btn-primary btn-success">Comprar</button>
-    </form>
-    <a href="/shop/edit?id={{product.id}}" class="btn btn-warning">Editar</a>
-    <br>
-    <form method="POST" action="/shop/{{product.id}}/delete">
-        <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
+        <button type="submit" class="btn btn-buy btn-light btn-back btn-block">Comprar</button>
     </form>
     {{/if}}
-    {{!-- {{#if !user}}
-    <h2>Debes estar registrado para poder comprar, o publicar tus productos</h2>
-    {{/if}} --}}
 </div>
     <a href="/shop" class="btn btn-back btn-light">Volver a la tienda</a>
 
