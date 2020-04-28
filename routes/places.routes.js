@@ -80,4 +80,9 @@ router.post('/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .catch(err => console.log(`Ha ocurrido un error eliminando el lugar: ${err}`)) 
 })
 
+router.get('/api', (req, res, next) => {
+    Place.find()
+        .then(data => res.json(data))
+        .catch(err => console.log(`Error: ${err}`)) 
+})
 module.exports = router

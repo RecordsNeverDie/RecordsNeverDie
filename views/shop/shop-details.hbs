@@ -2,8 +2,16 @@
 
     <h1 class="title-view">{{product.title}}</h1>
 
+    <div class="row details">
+        <div class="col-md-6">
+            <img src='{{product.picture}}' alt="album cover">
+        </div>
 
-    <img src='{{product.picture}}' alt="album cover" >
+        <div class="col-md-6">
+            <figure id="myMap" class="square"></figure>
+        </div>
+    </div>
+
     
     <h4>{{product.description}}</h4>
     <h5><strong>Género: </strong> {{product.genre}} | <strong>Estado: </strong> {{product.condition}} | <strong>Precio: </strong> {{product.price}}$</h5>
@@ -25,6 +33,5 @@
     {{/if}} --}}
     <a href="/shop" class="btn btn-dark">Volver a la tienda</a>
 
-    
 
 </div>
