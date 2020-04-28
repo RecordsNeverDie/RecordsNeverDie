@@ -6,7 +6,7 @@ const User = require('../models/user.model')
 
 router.get('/', (req,res) => {
     Place.find()
-    .populate('user_id')
+    .populate('creator')
     .then(allPlaces => res.render('places/places-index', {places: allPlaces}))
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
