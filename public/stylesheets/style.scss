@@ -133,6 +133,19 @@ object-position: center;
   background-color: grey;
 }
 
+.details {
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-between;
+}
+
+.square {
+  height: 400px;
+  width: 400px;
+  background-color: grey;
+  margin-left: 150px;
+}
+
 .place {
   margin-bottom: 25px;
 

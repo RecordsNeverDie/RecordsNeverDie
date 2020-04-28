@@ -1,3 +1,4 @@
+require('dotenv').config()
 const session = require("express-session")
 const bcrypt = require("bcrypt")
 const passport = require("passport")
