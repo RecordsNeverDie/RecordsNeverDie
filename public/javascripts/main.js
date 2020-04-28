@@ -6,48 +6,33 @@ window.onload = () => {
         lng: -3.706610
     } 
 
-//  initMap = () => {
+    if (document.querySelector('#myMap')) {
+        
+        myMap = new google.maps.Map(document.getElementById('myMap'), {
+            zoom: 15,
+            center,
+            styles: mapStyles.retro
+        })
+    
+         getPin('/places/api')
+    }
 
-//     let mapOptions = {
-//         center: {
-//             lat: 40.416915,
-//             lng: -3.702870
-//         },
-//         zoom: 15,
-//         styles: mapStyles.retro
-//     }
+    // if (document.querySelector('#myMap')) {
 
-    myMap = new google.maps.Map(document.getElementById('myMap'), {
-        zoom: 15,
-        center,
-        styles: mapStyles.retro
-    })
+    //     myMap = new google.maps.Map(document.getElementById('myMap'), {
+    //         zoom: 15,
+    //         center,
+    //         styles: mapStyles.retro
+    //     })
 
-
-    // let markerOptions = {
-    //     position: {
-    //         lat: 40.416930,
-    //         lng: -3.702807
-    //     },
-    //     map: myMap,
-    //     title: "PRUEBA"
+    //     getPin('/places/api')
     // }
-
-    // new google.maps.Marker(markerOptions)
-
-//     const markers = []
-//     let center = {
-//         lat: undefined,
-//         lng: undefined,
-//     }
-
-     getPin()
 }
 
 
-function getPin() {
+function getPin(apiUrl) {
     axios
-        .get('/places/api')
+        .get(apiUrl)
         .then(placesFromApi => {
             const places = placesFromApi.data
             places.forEach(elm => {
