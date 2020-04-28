@@ -12,7 +12,7 @@
             <h5><strong>Género: </strong> {{product.genre}}</h5>
             <h5><strong>Condición: </strong> {{product.condition}}</h5>
             <h5><strong>Precio: </strong> {{product.price}}$</h5>
-            <a href="/shop/edit?id={{product.id}}" class="btn btn-light">Editar</a>
+            <a href="/shop/edit?id={{product.id}}" class="btn btn-light btn-edit">Editar</a>
             <form method="POST" action="/shop/{{product.id}}/delete">
                 <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
             </form> 
@@ -28,7 +28,7 @@
 
     {{#if user}}
     <form method="GET" action="/shop/buy/{{product.id}}">
-        <button type="submit" class="btn btn-buy btn-light btn-back btn-block">Comprar</button>
+        <button type="submit" class="btn btn-buy btn-success btn-back btn-block">Comprar</button>
     </form>
     {{/if}}
 </div>

@@ -102,6 +102,8 @@ h1, h2, h3 {
     margin: 20px; }
   .product-details .btn-buy {
     text-transform: uppercase; }
+  .product-details .btn-edit {
+    margin: 10px; }
 
 #myMap {
   justify-content: center;
