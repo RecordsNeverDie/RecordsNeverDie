@@ -23,4 +23,5 @@ app.use('/', require('./routes/auth.routes'))
 app.use('/music', require('./routes/music.routes'))
 app.use('/places', require('./routes/places.routes'))
 app.use('/shop', require('./routes/shop.routes'))
+
 module.exports = app
