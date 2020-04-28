@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.get("/new", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-new"))
 
-router.post("/new", cloudUploader.single('picture'), (req, res, next) => {
+router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
 
     console.log(req.body)
     const { title, artist, genre, price, picture, description, condition, location } = req.body
@@ -32,7 +32,7 @@ router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
         .catch(err => console.log(`An error ocurred updating the place: ${err}`))
 })
 
-router.post('/edit/:id', cloudUploader.single('picture'), (req, res, next) => {
+router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => {
     
     let location = {
         type: 'Point',
@@ -44,20 +44,14 @@ router.post('/edit/:id', cloudUploader.single('picture'), (req, res, next) => {
         artist: req.body.artist,
         genre: req.body.genre,
         price: req.body.price,
-        picture: req.file.url,
         description: req.body.description,
         condition: req.body.condition,
         location: location
     }
-    
-    //  if (req.body.picture) {
-    //      newProduct[picture] = req.body.picture
-    //  }
 
-
-    //  if (req.file.url) {
-    //     newProduct[picture] = req.file.url
-    //  }
+     if (req.file) {
+        newProduct.picture = req.file.url
+     }
 
     Product.findByIdAndUpdate(req.params.id, newProduct, { new: true })
         .then(() => res.redirect("/shop"))
@@ -67,7 +61,7 @@ router.post('/edit/:id', cloudUploader.single('picture'), (req, res, next) => {
 router.get("/details/:id", (req, res) => {
 
     Product.findById(req.params.id)
-        .then(productDetails => res.render(res.render("shop/shop-details", productDetails))
+        .then(product => res.render(res.render("shop/shop-details", {product, user: req.user}))
             .catch(err => {
                 console.log(`An error ocurred: ${err}`)
                 next()
