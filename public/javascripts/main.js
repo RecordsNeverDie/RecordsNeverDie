@@ -1,16 +1,13 @@
 let myMap
 window.onload = () => {
 
-    const center = {
-        lat: 40.419244,
-        lng: -3.706610
-    } 
+    let madrid = { lat: 40.416928, lng: -3.703492 };
 
     if (document.querySelector('#myMap')) {
         
         myMap = new google.maps.Map(document.getElementById('myMap'), {
-            zoom: 15,
-            center,
+            zoom: 13,
+            center: madrid,
             styles: mapStyles.silver
         })
     

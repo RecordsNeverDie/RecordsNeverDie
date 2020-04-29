@@ -134,17 +134,14 @@ h1, h2, h3 {
 
 .product-index img {
   width: 400px; }
-.message-field {
+
+.product-index .message-field {
   height: 150px; }
 
-.buying {
+.product-index .buying {
   text-align: center; }
-  .buying img {
+  .product-index .buying img {
     width: 50%;
     margin: 20px 0; }
-
-.shop-items {
-  background-color: red;
-  width: 150%; }
 
 /*# sourceMappingURL=style.css.map */

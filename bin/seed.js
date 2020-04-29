@@ -46,7 +46,6 @@ const users = [
 User.create(users)
     .then(allUsers => {
         console.log(`${allUsers} created`)
-        // mongoose.connection.close()
     })
     .catch(err => console.log(`Ha ocurrido un error: ${err}`))
 
@@ -117,7 +116,6 @@ const places = [
 Place.create(places)
     .then(allPlaces => {
         console.log(`${allPlaces} created`)
-        //  mongoose.connection.close()
     })
     .catch(error => console.log(`Ha ocurrido un error: ${err}`))
 
@@ -203,7 +201,6 @@ const products = [
 Product.create(products)
     .then(allProducts => {
         console.log(`${allProducts} created`)
-        //mongoose.connection.close()
     })
     .catch(error => console.log(`Ha ocurrido un error: ${error}`))
 

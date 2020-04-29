@@ -7,7 +7,9 @@ const userSchema = new Schema({
     email: String,
     password: String,
     picture: String,
-    description: String
+    description: String,
+    vinyls: [{type: Schema.Types.ObjectId, ref: 'Product'}],
+    store: [{type: Schema.Types.ObjectId, ref: 'Place'}]
 }, {
     timestamps: true
 })

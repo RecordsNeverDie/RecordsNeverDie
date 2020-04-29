@@ -20,6 +20,8 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
     }
 
     User.findOne({ username })
+        .populate('vinyls')
+        .populate('store')
         .then(user => {
             if (user) {
                 res.render("auth/signup", { errorMsg: "El usuario ya existe en la BBDD" })
@@ -27,8 +29,9 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
             }
             const salt = bcrypt.genSaltSync(bcryptSalt)
             const hashPass = bcrypt.hashSync(password, salt)
-
-            User.create({ name, username, email, password: hashPass, picture: req.file.url })
+            
+            User.create({ name, username, email, password: hashPass, picture: req.file.url, store: placeCreated._id })
+            console.log('llegas aqui?', populate('vinyls'))
                 .then(() => res.redirect("/"))
                 .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
         })
@@ -39,7 +42,7 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
 // User login
 router.get('/login', (req, res) => res.render('auth/login', { "errorMsg": req.flash("error") }))
 router.post('/login', passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/profile",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true,

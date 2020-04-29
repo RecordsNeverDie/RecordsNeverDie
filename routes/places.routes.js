@@ -6,9 +6,7 @@ const User = require('../models/user.model')
 
 router.get('/', (req,res) => {
     Place.find()
-    //.populate('creator')
     .then(allPlaces => {
-        console.log(allPlaces)
         res.render('places/places-index', {places: allPlaces, user: req.user})})
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
@@ -16,18 +14,17 @@ router.get('/', (req,res) => {
 
 router.get('/details/:id', (req, res, next) => {
     const placeId = req.params.id 
-    console.log(placeId)
+
     Place.findById(placeId)
-    .populate('creator')
     .then(place => {
         let isAuthor = false;
-        console.log('este es el req.user.id', req.user._id)
-        if(req.user && place.creator && place.creator._id === req.user._id){
-            console.log("entra en la condición")
-               isAuthor = true  
+        if(req.user && place.creator){
+            if (place.creator.toString() === req.user._id.toString()) {
+                isAuthor = true  
+            }
         }
  
-     res.render('places/places-details', {place, user: req.user.id, isAuthor})
+     res.render('places/places-details', {place, user: req.user, isAuthor})
 
     })
     .catch(err => console.log(`Ha ocurrido un error viendo los detalles del lugar: ${err}`)) 
@@ -48,12 +45,23 @@ router.post('/new', (req,res, next) => {
         rating: req.body.rating,
         description: req.body.description,
         location,
-        creator: req.user._id
+        creator: req.user._id,
+        store: req.place._id
     })
     Place.create(newPlace)
     .then(() => res.redirect('/places'))
     .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
 })
+
+// Place.create(newPlace)
+// .then((placeCreated) => {
+//     console.log(placeCreated)
+//     return User.findByIDAndUpadte(req.user._id, {$push: {store: placeCreated._id}})
+//     })
+// º   .then(() => res.redirect('/places'))
+
+// .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
+// })
 
 
 router.get('/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
