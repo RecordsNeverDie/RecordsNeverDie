@@ -26,8 +26,8 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
         genre: req.body.genre,
         price: req.body.price,
         description: req.body.description,
-        condition: req.body.condition,
         picture: req.file.url,
+        condition: req.body.condition,
         location,
         creator: req.user._id
     })

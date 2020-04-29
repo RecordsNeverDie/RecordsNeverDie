@@ -144,9 +144,9 @@ h1, h2, h3 {
 .product-index .message-field {
   height: 150px; }
 
-.product-index .buying {
+.buying {
   text-align: center; }
-  .product-index .buying img {
+  .buying img {
     width: 50%;
     margin: 20px 0; }
 
