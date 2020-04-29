@@ -12,23 +12,23 @@
 <div class="row options-container justify-content-center">
     <div class="col-md-3 option-container">
         <h1 class="text-light text-center">Tiendas añadidas</h1>
-        {{!-- <select name="places" class="form-control profile" id="places-list">
+        <select name="places" class="form-control profile" id="places-list">
             <option>Ver todas</option>
-            {{#each places}}
-            <option value="{{_id}}">{{name}}</option>
+            {{#each user.store}}
+            <option value="{{this._id}}">{{name}}</option>
             {{/each}}
-          </select> --}}
+          </select>
         <a href="/places"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
     </div>
 
     <div class="col-md-3 option-container">
         <h1 class="text-light text-center">Vende tus vinilos</h1>
-            {{!-- <select name="places" class="form-control profile" id="places-list">
+            <select name="places" class="form-control profile" id="places-list">
             <option>Mis productos</option>
-            {{#each products}}
-            <option value="{{_id}}">{{title}}</option>
+            {{#each user.vinyl}}
+            <option value="{{this._id}}">{{title}}</option>
             {{/each}}
-          </select> --}}
+          </select>
   <a href="/shop"><button type="button" class="btn btn-back btn-light btn-lg">Vender</button></a>
     </div>
 

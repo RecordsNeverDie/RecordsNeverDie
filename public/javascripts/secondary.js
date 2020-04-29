@@ -10,7 +10,7 @@ window.onload = () => {
         albumMap = new google.maps.Map(document.getElementById('albumMap'), {
             zoom: 14,
             center,
-            styles: mapStyles.retro
+            styles: mapStyles.silver
         })
     
     let albumId = document.querySelector("#productId").value

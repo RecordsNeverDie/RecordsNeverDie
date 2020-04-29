@@ -45,23 +45,18 @@ router.post('/new', (req,res, next) => {
         rating: req.body.rating,
         description: req.body.description,
         location,
-        creator: req.user._id,
-        store: req.place._id
+        creator: req.user._id
+
     })
     Place.create(newPlace)
-    .then(() => res.redirect('/places'))
+    .then((placeCreated) => {
+        console.log(placeCreated)
+        return User.findByIdAndUpdate(req.user._id, {$push: {store: placeCreated._id}})
+        })
+       .then(() => res.redirect('/places'))
+
     .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
-})
-
-// Place.create(newPlace)
-// .then((placeCreated) => {
-//     console.log(placeCreated)
-//     return User.findByIDAndUpadte(req.user._id, {$push: {store: placeCreated._id}})
-//     })
-// º   .then(() => res.redirect('/places'))
-
-// .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
-// })
+    })
 
 
 router.get('/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {

@@ -4,6 +4,7 @@ const multer = require('multer')
 const cloudUploader = require('../configs/cloudinary.config')
 const ensureLogin = require('connect-ensure-login')
 const Product = require("../models/product.model")
+const User = require('../models/user.model')
 
 router.get('/', (req, res) => {
     Product.find()
@@ -19,24 +20,27 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
         coordinates: [req.body.latitude, req.body.longitude]
     }
     
-    const newProduct = new Place({
+    const newProduct = new Product({
         title: req.body.title,
         artist: req.body.artist,
         genre: req.body.genre,
         price: req.body.price,
         description: req.body.description,
         condition: req.body.condition,
+        picture: req.file.url,
         location,
-        creator: req.user._id,
-        vinyls: req.place._id
-
+        creator: req.user._id
     })
 
     Product.create(newProduct)
+        .then((productCreated) => {
+            console.log(productCreated)
+            return User.findByIdAndUpdate(req.user._id, {$push: {vinyl: productCreated._id}})
+        })
         .then(() => res.redirect('/shop'))
         .catch(err => console.log(`Ha ocurrido un error creando el producto: ${err}`)) 
     
-})
+    })
 
 router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
     Product.findById(req.query.id)
@@ -58,7 +62,7 @@ router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => 
         price: req.body.price,
         description: req.body.description,
         condition: req.body.condition,
-        location: location,
+        location
 
     }
 

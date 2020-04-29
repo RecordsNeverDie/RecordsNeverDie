@@ -20,8 +20,6 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
     }
 
     User.findOne({ username })
-        .populate('vinyls')
-        .populate('store')
         .then(user => {
             if (user) {
                 res.render("auth/signup", { errorMsg: "El usuario ya existe en la BBDD" })
@@ -31,7 +29,6 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
             const hashPass = bcrypt.hashSync(password, salt)
             
             User.create({ name, username, email, password: hashPass, picture: req.file.url, store: placeCreated._id })
-            console.log('llegas aqui?', populate('vinyls'))
                 .then(() => res.redirect("/"))
                 .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
         })
@@ -57,6 +54,7 @@ router.get("/logout", (req, res) => {
 })
 
 router.get('/profile', ensureLogin.ensureLoggedIn(), (req,res) => {
+    console.log(req.user)
     res.render('auth/profile', {
         user: req.user
     })
