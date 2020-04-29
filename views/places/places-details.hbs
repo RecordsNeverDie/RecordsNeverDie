@@ -4,13 +4,13 @@
     </div>
 </div>
 
-<div class="card" style="width: 50rem;">
+<div class="card " style="width: 50rem;">
     <div class="card-header text-dark">
         <h5><strong>{{place.name}}</strong></h5>
     </div>
     <ul class="list-group list-group-flush text-dark">
         <li class="list-group-item"><strong>Género: </strong>{{place.genre}}</li>
-        <li class="list-group-item"><strong>Rating: </strong>{{place.rating}}</li>
+        <li class="list-group-item"><strong>Rating: </strong>{{place.rating}}<img class="star" src="/images/estrella.svg" alt="star"></li>
         {{!-- <li class="list-group-item"><strong>Dirección: </strong>{{place.location.coordinates.[0]}},{{location.coordinates.[1]}}</li> --}}
         <li class="list-group-item"><strong>Descripción: </strong>{{place.description}}</li>
     </ul>
@@ -21,4 +21,4 @@
       <button class="btn btn-danger btn-sm" type="submit">Borrar</button>
   </form>
 {{/if}}
-<a href="/places"><button type="button" class="btn btn-dark btn-back-list">Volver atrás</button></a>
+<a href="/places"><button type="button" class="btn btn-light btn-back ">Volver atrás</button></a>

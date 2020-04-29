@@ -68,18 +68,6 @@ h1, h2, h3 {
   border-radius: none;
   color: white; }
 
-.profile-container {
-  border-radius: 10px;
-  padding: 40px; }
-  .profile-container .profile {
-    border: none; }
-  .profile-container .welcome {
-    font-size: 2.5em; }
-
-.option-container {
-  padding: 20px;
-  margin: 20px; }
-
 .shop-index {
   padding: 30px; }
   .shop-index .products {
@@ -105,6 +93,18 @@ h1, h2, h3 {
   .product-details .btn-edit {
     margin: 10px; }
 
+.product-index img {
+  width: 400px; }
+
+.product-index .message-field {
+  height: 150px; }
+
+.buying {
+  text-align: center; }
+  .buying img {
+    width: 50%;
+    margin: 20px 0; }
+
 #myMap {
   justify-content: center;
   width: 100%;
@@ -123,6 +123,10 @@ h1, h2, h3 {
     text-align: center;
     font-weight: 600; }
 
+.star {
+  width: 18px;
+  margin: 0 0 5px 5px; }
+
 .btn-new {
   font-weight: 600;
   margin: 10px;
@@ -138,16 +142,32 @@ h1, h2, h3 {
 .input-localization {
   margin-bottom: 15px; }
 
-.product-index img {
-  width: 400px; }
+.profile-pic {
+  width: 300px;
+  border-radius: 5px;
+  margin-left: 100px; }
 
-.product-index .message-field {
-  height: 150px; }
+.op-container {
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4); }
 
-.buying {
-  text-align: center; }
-  .buying img {
-    width: 50%;
-    margin: 20px 0; }
+.option-container {
+  margin: 30px; }
+  .option-container h1 {
+    padding: 25px;
+    font-weight: 700;
+    text-align: center; }
+  .option-container li {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    font-size: 1.8em;
+    font-weight: 700; }
+  .option-container .img-options {
+    width: 150px;
+    margin-left: 200px; }
+  .option-container button {
+    margin-top: 20px;
+    margin-left: 200px; }
 
 /*# sourceMappingURL=style.css.map */

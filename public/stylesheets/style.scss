@@ -98,23 +98,6 @@ h1, h2, h3 {
 
 }
 
-.profile-container {
-  border-radius: 10px;
-  padding: 40px;
-
-  .profile {
-    border: none;
-  }
-  .welcome {
-    font-size: 2.5em;
-  }
-}
-
-.option-container {
-padding: 20px;
-margin: 20px;
-}
-
 // ------ SHOP -------
 .shop-index {
   padding: 30px;
@@ -150,12 +133,26 @@ margin: 20px;
     .btn-edit {
       margin: 10px;
     }
+  }
 
-    // .details {
-    //   justify-content: space-around;
-    //   align-items: center;
-    //   align-content: space-between;
-    // }
+  .product-index{
+
+    img {
+      width: 400px;
+    }
+  
+    .message-field {
+      height: 150px;
+    }
+  }
+  .buying {
+
+    text-align: center;
+  
+    img {
+      width: 50%;
+      margin: 20px 0;
+      }
   }
 
 
@@ -181,6 +178,11 @@ margin: 20px;
     text-align: center;
     font-weight: 600;
   }
+
+}
+.star {
+  width: 18px;
+  margin: 0 0 5px 5px;
 }
 
 .btn-new {
@@ -201,29 +203,45 @@ margin: 20px;
   margin-bottom: 15px;
 }
 
-.product-index{
 
-  img {
-    width: 400px;
-  }
 
-.message-field {
-  height: 150px;
+
+// -- PROFILE ----
+
+.profile-pic {
+  width: 300px;
+  border-radius: 5px;
+  margin-left: 100px;
+
 }
 
+.op-container {
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.option-container {
+  margin: 30px;
+  
+  h1 {
+    padding: 25px;
+    font-weight: 700;
+    text-align: center;
+  }
 
+  li {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+  .img-options {
+    width: 150px;
+    margin-left: 200px;
+  }
+  button {
+    margin-top: 20px;
+    margin-left: 200px;
+  }
 }
 
-.buying {
-
-  text-align: center;
-
-  img {
-    width: 50%;
-    margin: 20px 0;
-    }
-  }
-// .shop-row {
-  //   background-color: red;
-//   width: 150%;
-// }

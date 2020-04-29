@@ -62,7 +62,8 @@ router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => 
         price: req.body.price,
         description: req.body.description,
         condition: req.body.condition,
-        location
+        location,
+
 
     }
 
