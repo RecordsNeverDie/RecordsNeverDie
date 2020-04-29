@@ -147,7 +147,7 @@ const products = [
         condition: 'Buen Estado',
         location: {
             type: 'Point',
-            coordinates: [40.493000, - 3.965941]
+            coordinates: [40.493000, -3.965941]
         }
     }, {
         title: 'Ballroom Stories',
@@ -159,7 +159,7 @@ const products = [
         condition: 'Usado',
         location: {
             type: 'Point',
-            coordinates: [40.471136, - 3.869075]
+            coordinates: [40.471136, -3.869075]
         }
     }, {
         title: 'Beatles VI',
@@ -171,7 +171,7 @@ const products = [
         condition: 'Usado',
         location: {
             type: 'Point',
-            coordinates: [40.435971, -3.706684]
+            coordinates: [40.435971, -3.506684]
         }
     }, {
         title: 'Greatest hits',
@@ -195,7 +195,7 @@ const products = [
         condition: 'Perfecto Estado',
         location: {
             type: 'Point',
-            coordinates: [40.435979, -3.706684]
+            coordinates: [40.435979, -3.706300]
         }
     }
 ]

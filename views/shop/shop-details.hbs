@@ -20,11 +20,9 @@
             </form> 
         </div>
 
-        <div class="col-md-6">
-            <div class="col">
+        <div class="col-md-6">        
             <h4><strong>Ubicación del vendedor</strong></h4>
-                <figure id="myMap" class="shop-map"></figure>
-            </div>
+            <figure id="albumMap"></figure>    
         </div>
     </div>
 
@@ -35,5 +33,7 @@
     {{/if}}
 </div>
     <a href="/shop" class="btn btn-back btn-light">Volver a la tienda</a>
+    <input id="productId" name="productId" type="hidden" value="{{product.id}}">
+<script src="/javascripts/secondary.js"></script>
 
 

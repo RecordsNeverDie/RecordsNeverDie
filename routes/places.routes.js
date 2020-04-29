@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
     Place.find()
     //.populate('creator')
     .then(allPlaces => {
-        console.log(allPlaces)
+        //console.log(allPlaces)
         res.render('places/places-index', {places: allPlaces, user: req.user})})
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
@@ -39,7 +39,7 @@ router.post('/new', (req,res, next) => {
 
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     }
 
     const newPlace = new Place({
@@ -69,7 +69,7 @@ router.post('/edit/:id', (req, res, next) => {
 
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     }
 
     const newPlace = {
@@ -99,4 +99,5 @@ router.get('/api', (req, res, next) => {
         .then(data => res.json(data))
         .catch(err => console.log(`Error: ${err}`)) 
 })
+
 module.exports = router

@@ -162,6 +162,13 @@ margin: 20px;
 // -- PLACES --
 #myMap {
   justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-color: grey;
+}
+
+#albumMap {
+  justify-content: center;
   width: 800px;
   height: 300px;
   background-color: grey;
@@ -212,4 +219,11 @@ margin: 20px;
     width: 50%;
     margin: 20px 0;
     }
+  }
+
 }
+
+// .shop-row {
+//   background-color: red;
+//   width: 150%;
+// }
