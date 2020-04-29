@@ -36,7 +36,7 @@ router.post('/new', (req,res, next) => {
 
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     }
 
     const newPlace = new Place({
@@ -77,7 +77,7 @@ router.post('/edit/:id', (req, res, next) => {
 
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     }
 
     const newPlace = {
@@ -107,4 +107,5 @@ router.get('/api', (req, res, next) => {
         .then(data => res.json(data))
         .catch(err => console.log(`Error: ${err}`)) 
 })
+
 module.exports = router

@@ -16,7 +16,7 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
 
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     }
     
     const newProduct = new Place({
@@ -48,7 +48,7 @@ router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => 
     
     let location = {
         type: 'Point',
-        coordinates: [req.body.longitude, req.body.latitude]
+        coordinates: [req.body.latitude, req.body.longitude]
     } 
 
     const newProduct = {
@@ -94,10 +94,16 @@ router.get("/details/:id", (req, res) => {
             .catch(err => console.log(`An error ocurred deleting the product: ${err}`))
     })
 
-    router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => /*res.render("shop/shop-buy"))*/ {
+    router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
         Product.findById(req.params.id)
             .then(buyProduct => res.render('shop/shop-buy', { buyProduct }))
             .catch(err => console.log(`An error ocurred updating the place: ${err}`))
+    })
+
+    router.get('/details/:id/api', (req, res, next) => {
+        Product.findById(req.params.id)
+            .then(data => res.json(data))
+            .catch(err => console.log(`Error: ${err}`))
     })
 
 
