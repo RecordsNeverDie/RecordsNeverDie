@@ -17,7 +17,7 @@ router.get('/details/:id', (req, res, next) => {
 
     Place.findById(placeId)
     .then(place => {
-        let isAuthor = false;
+        let isAuthor = false
         if(req.user && place.creator){
             if (place.creator.toString() === req.user._id.toString()) {
                 isAuthor = true  

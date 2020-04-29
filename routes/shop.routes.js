@@ -6,29 +6,42 @@ const ensureLogin = require('connect-ensure-login')
 const Product = require("../models/product.model")
 
 router.get('/', (req, res) => {
-
     Product.find()
         .then(product => res.render('shop/shop-index', { product, user: req.user }))
         .catch(err => console.log("Ha habido un error!", err))    
 })
 
 router.get("/new", ensureLogin.ensureLoggedIn(), (req, res) => res.render("shop/shop-new"))
-
 router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
 
-    console.log(req.body)
-    const { title, artist, genre, price, picture, description, condition, location } = req.body
+    let location = {
+        type: 'Point',
+        coordinates: [req.body.longitude, req.body.latitude]
+    }
+    
+    const newProduct = new Place({
+        title: req.body.title,
+        artist: req.body.artist,
+        genre: req.body.genre,
+        price: req.body.price,
+        description: req.body.description,
+        condition: req.body.condition,
+        location,
+        creator: req.user._id,
+        vinyls: req.place._id
 
-    Product.create({ title, artist, genre, price, picture: req.file.url, description, condition, location })
-        .then(() => res.redirect('/shop', { user: req.user}))
-        .catch(err => console.log("Hubo un error", err))
+    })
+
+    Product.create(newProduct)
+        .then(() => res.redirect('/shop'))
+        .catch(err => console.log(`Ha ocurrido un error creando el producto: ${err}`)) 
     
 })
 
 router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
     Product.findById(req.query.id)
         .then(oneProduct => res.render('shop/shop-edit', oneProduct))
-        .catch(err => console.log(`An error ocurred updating the place: ${err}`))
+        .catch(err => console.log(`Ha ocurrido un error editandoel producto: ${err}`)) 
 })
 
 router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => {
@@ -45,7 +58,8 @@ router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => 
         price: req.body.price,
         description: req.body.description,
         condition: req.body.condition,
-        location: location
+        location: location,
+
     }
 
      if (req.file) {
@@ -58,15 +72,22 @@ router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => 
 })
 
 router.get("/details/:id", (req, res) => {
+    const shopId = req.params.id
 
-    Product.findById(req.params.id)
-        .then(product => res.render(res.render("shop/shop-details", {product, user: req.user}))
-            .catch(err => {
-                console.log(`An error ocurred: ${err}`)
-                next()
-            })
-    ) 
-    
+    Product.findById(shopId)
+        .then(product => {
+            let isAuthor = false
+            if (req.user && product.creator) {
+                if (product.creator.toString() === req.user._id.toString()) {
+                    isAuthor = true
+                }
+            }
+        res.render("shop/shop-details", {product, user: req.user, isAuthor})
+        })
+
+        .catch(err => console.log(`An error ocurred: ${err}`)) 
+})
+
     router.post('/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
         Product.findByIdAndRemove(req.params.id)
             .then(() => res.redirect('/shop'))
@@ -78,6 +99,6 @@ router.get("/details/:id", (req, res) => {
             .then(buyProduct => res.render('shop/shop-buy', { buyProduct }))
             .catch(err => console.log(`An error ocurred updating the place: ${err}`))
     })
-})
+
 
 module.exports = router
