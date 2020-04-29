@@ -11,7 +11,6 @@ router.get('/', (req,res) => {
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
 
-
 router.get('/details/:id', (req, res, next) => {
     const placeId = req.params.id 
 
@@ -30,7 +29,6 @@ router.get('/details/:id', (req, res, next) => {
     .catch(err => console.log(`Ha ocurrido un error viendo los detalles del lugar: ${err}`)) 
 })
 
-
 router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => res.render('places/places-new'))
 router.post('/new', (req,res, next) => {
 
@@ -46,7 +44,6 @@ router.post('/new', (req,res, next) => {
         description: req.body.description,
         location,
         creator: req.user._id,
-        store: req.place._id
     })
     Place.create(newPlace)
     .then(() => res.redirect('/places'))
@@ -62,7 +59,6 @@ router.post('/new', (req,res, next) => {
 
 // .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
 // })
-
 
 router.get('/edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     const placeId = req.query.id 

@@ -19,17 +19,16 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
         coordinates: [req.body.latitude, req.body.longitude]
     }
     
-    const newProduct = new Place({
+    const newProduct = new Product({
         title: req.body.title,
         artist: req.body.artist,
         genre: req.body.genre,
         price: req.body.price,
         description: req.body.description,
+        picture: req.file.url,
         condition: req.body.condition,
         location,
         creator: req.user._id,
-        vinyls: req.place._id
-
     })
 
     Product.create(newProduct)

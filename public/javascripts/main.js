@@ -13,10 +13,8 @@ window.onload = () => {
             styles: mapStyles.silver
         })
     
-        getPin('/places/api')
-     
+        getPin('/places/api')   
 }
-
 
 function getPin(apiUrl) {
     axios
@@ -35,6 +33,7 @@ function getPin(apiUrl) {
                 })
             })
         })
+        
         .catch(error => console.log(error))
 }
 
