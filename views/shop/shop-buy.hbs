@@ -9,7 +9,7 @@
                 <h2>{{buyProduct.price}}$</h2>
             </div>
             {{!-- AQUI HAY MORRALLA --}}
-            <form action="/buy/:id" method="post"> 
+            <form action="/buy/{{_id}}" method="post"> 
                 <div class="form-group">
                     <label for="field1">Tu nombre de usuario</label>
                     <input name="username" type="text" class="form-control" id="field1">
