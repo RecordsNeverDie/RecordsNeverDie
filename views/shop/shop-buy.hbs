@@ -8,22 +8,17 @@
                 <img src='{{buyProduct.picture}}' alt="album cover">
                 <h2>{{buyProduct.price}}$</h2>
             </div>
-            {{!-- AQUI HAY MORRALLA --}}
-            <form action="/buy/{{_id}}" method="post"> 
+           
+            <form action="/shop/buy/{{buyProduct.id}}" method="post"> 
                 <div class="form-group">
-                    <label for="field1">Tu nombre de usuario</label>
-                    <input name="username" type="text" class="form-control" id="field1">
+                    <label for="field1">{{user.username}}, envía un mensaje a {{buyProduct.creator.username}} para concretar los detalles de la compra. {{buyProduct.creator.username}} recibirá tu email y se pondrá en contacto contigo.</label>
+                    <textarea name="message" class="form-control message-field" id="field1" ></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="field2">Tu Email</label>
-                    <input name="email" type="email" class="form-control" id="field2">
-                </div>
-                <div class="form-group">
-                    <label for="field3">Mensaje para {{buyProduct.creator.username}}</label>
-                    {{!-- <input name="message" type="textarea" class="form-control message-field" id="field3"> --}}
-                    <textarea name="message" class="form-control message-field" id="field3" ></textarea>
-                </div>
-                
+                <input id="field2" name="username" type="hidden" value="{{user.username}}" >
+                <input id="field3" name="email" type="hidden" value="{{user.email}}">
+                <input id="field4" name="creatorEmail" type="hidden" value="{{buyProduct.creator.email}}">
+                <input id="field5" name="title" type="hidden" value="{{buyProduct.title}}">
+                <input id="field6" name="artist" type="hidden" value="{{buyProduct.artist}}">
                 <button type="submit" class="btn btn-login btn-success btn-block btn-lg">Contactar con el vendedor</button>
             </form>
 

@@ -12,8 +12,8 @@ window.onload = () => {
             center,
             styles: mapStyles.silver
         })
-    
-        getPin('/places/api')   
+    getPin('/places/api')
+    // marker.addListener('click', toggleBounce);
 }
 
 function getPin(apiUrl) {
@@ -28,12 +28,29 @@ function getPin(apiUrl) {
                 }
                 new google.maps.Marker({
                     position: center,
+                    animation: google.maps.Animation.DROP,
                     map: myMap,
-                    title: elm.name
+                    title: elm.name,
+                   // icon: "https://files.slack.com/files-pri/T0108LT3D6Z-F013J41LQ4Q/download/discos-compactos.svg"
                 })
+                
             })
         })
         
         .catch(error => console.log(error))
 }
 
+// function drop() {
+//     for (var i = 0; i < markerArray.length; i++) {
+//         setTimeout(function () {
+//             addMarkerMethod();
+//         }, i * 200);
+//     }
+// }
+// function toggleBounce() {
+//     if (marker.getAnimation() !== null) {
+//         marker.setAnimation(null);
+//     } else {
+//         marker.setAnimation(google.maps.Animation.BOUNCE);
+//     }
+// }

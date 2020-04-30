@@ -119,9 +119,6 @@ Place.create(places)
     })
     .catch(error => console.log(`Ha ocurrido un error: ${err}`))
 
-
-
-
 const products = [
     {
         title: 'Queen Live At Wembley 86',

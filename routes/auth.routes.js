@@ -28,7 +28,7 @@ router.post("/signup", cloudUploader.single('imageFile'), (req, res, next) => {
             const salt = bcrypt.genSaltSync(bcryptSalt)
             const hashPass = bcrypt.hashSync(password, salt)
             
-            User.create({ name, username, email, password: hashPass, picture: req.file.url, store: placeCreated._id })
+            User.create({ name, username, email, password: hashPass, picture: req.file.url })
                 .then(() => res.redirect("/"))
                 .catch(() => res.render("auth/signup", { errorMsg: "No se pudo crear el usuario" }))
         })

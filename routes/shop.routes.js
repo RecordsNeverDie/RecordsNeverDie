@@ -35,7 +35,6 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
 
     Product.create(newProduct)
         .then((productCreated) => {
-            console.log(productCreated)
             return User.findByIdAndUpdate(req.user._id, { $push: { vinyl: productCreated._id } })
         })
         .then(() => res.redirect('/shop'))
@@ -46,7 +45,7 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
 router.get("/edit", ensureLogin.ensureLoggedIn(), (req, res) => {
     Product.findById(req.query.id)
         .then(oneProduct => res.render('shop/shop-edit', oneProduct))
-        .catch(err => console.log(`Ha ocurrido un error editandoel producto: ${err}`))
+        .catch(err => console.log(`Ha ocurrido un error editando el producto: ${err}`))
 })
 
 router.post('/edit/:id', cloudUploader.single('imageFile'), (req, res, next) => {
@@ -101,23 +100,25 @@ router.post('/:id/delete', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
     Product.findById(req.params.id)
-        .then(buyProduct => res.render('shop/shop-buy', { buyProduct }))
+        .populate("creator")
+        .then(buyProduct => res.render('shop/shop-buy', { buyProduct, user: req.user }))
         .catch(err => console.log(`An error ocurred updating the place: ${err}`))
 })
 
 router.post("/buy/:id", (req, res, next) => {
 
-    let { username, email, message } = req.body
+    let { username, email, message, title, artist, creatorEmail } = req.body
     console.log(username, email, message)
 
     mailer.sendMail({
-        from: 'recordsneverdie@gmail.com',
-        to: buyProduct.creator.email,
+        from: '"Records Never Die 📀" <recordsneverdie@gmail.com>',
+        to: creatorEmail,
         subject: `Hay un usuario interesado en tu producto ${title} de ${artist}`,
-        text: `El usuario ${username} está interesado en tu album, aquí su mensjae:${message}. Puedes contactar con él a través del siguiente email: ${email}`,
-        html: `<b>El usuario ${username} está interesado en tu album, aquí su mensjae:${message}. Puedes contactar con él a través del siguiente email: ${email}</b>`
+        text: `El usuario ${username} está interesado en tu album, aquí su mensjae:
+            ${message}. Puedes contactar con él a través del siguiente email: ${email}`,
+        html: `<b>El usuario ${username} está interesado en tu album, aquí su mensaje:${message}. Puedes contactar con él a través del siguiente email: ${email}</b>`
     })
-        .then(() => res.render('shop/shop-index'))
+        .then(() => res.redirect('/shop'))
         .catch(error => console.log(error));
 })
 
