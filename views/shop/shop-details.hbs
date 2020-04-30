@@ -11,13 +11,13 @@
             <h5><strong>Género: </strong> {{product.genre}}</h5>
             <h5><strong>Condición: </strong> {{product.condition}}</h5>
             <h5><strong>Precio: </strong> {{product.price}}€</h5>
+        </div>
             {{#if isAuthor}}
-            <a href="/shop/edit?id={{product.id}}" class="btn btn-light btn-edit">Editar</a>
+            <a href="/shop/edit?id={{product.id}}" class="btn btn-light btn-new btn-edit">Editar</a>
             <form method="POST" action="/shop/{{product.id}}/delete">
-                <button type="submit" class="btn btn-primary btn-danger">Borrar</button>
+                <button type="submit" class="btn btn-primary btn-del btn-new btn-danger">Borrar</button>
             </form>
             {{/if}} 
-        </div>
 
         <div class="col-md-12">        
             <h4><strong>Ubicación del vendedor</strong></h4>
