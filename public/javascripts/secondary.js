@@ -20,7 +20,7 @@ function getAlbumPin(apiUrl) {
             let seller = album.title + ' by ' + album.artist
             
             albumMap = new google.maps.Map(document.getElementById('albumMap'), {
-                zoom: 14,
+                zoom: 12,
                 center,
                 styles: mapStyles.silver
             })
@@ -28,7 +28,10 @@ function getAlbumPin(apiUrl) {
             new google.maps.Marker({
                 position: center,
                 map: albumMap,
-                title: seller
+                animation: google.maps.Animation.BOUNCE,
+                title: seller,
+                icon: "/images/icon_vinyl.png"
+
             })
         })
         .catch (error => console.log(error))
