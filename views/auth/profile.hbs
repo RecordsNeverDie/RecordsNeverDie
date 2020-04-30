@@ -1,10 +1,9 @@
 <div class="row op-container justify-content-center">
-    <div class="col-lg-6 option-container">
+    <div class="col-lg-8 option-container">
         <img class="profile-pic" src="{{user.picture}}" alt="Profile picture">
         <h1 class="card-title text-light">¡Hola, {{user.name}}!</h1>
     </div>
-
-    <div class="col-md-6 option-container line">
+    <div class="col-md-4 option-container myPost">
         <img class="img-options" src="/images/corazon.svg" alt="Marker heart icon">
         <h1 class="text-light text-center">Mis tiendas</h1>
         {{#each user.store}}
@@ -15,14 +14,17 @@
         <a href="/places/new"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
     </div>
 
-    <div class="col-md-6 option-container">
+    <div class="col-md-4 option-container myPost">
         <img class="img-options"  src="/images/vinilos.svg" alt="Vinyls icon">
         <h1 class="text-light text-center">Mis vinilos</h1>
+        <div>
+
         {{#each user.vinyl}}
         <ul>
             <a href="/shop/details/{{_id}}"><li>{{title}}</li></a>
         </ul>
         {{/each}}
+        </div>
   <a href="/shop/new"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
     </div>
 
