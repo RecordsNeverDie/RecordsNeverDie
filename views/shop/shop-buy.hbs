@@ -1,7 +1,5 @@
 <h1 class="title-view">Para completar tu compra, contacta con el vendedor:</h1>
 
-
-
     <div class="row justify-content-center login">
 
         <div class="col-md-6">
@@ -10,7 +8,8 @@
                 <img src='{{buyProduct.picture}}' alt="album cover">
                 <h2>{{buyProduct.price}}$</h2>
             </div>
-            <form>
+            {{!-- AQUI HAY MORRALLA --}}
+            <form action="/buy/:id" method="post"> 
                 <div class="form-group">
                     <label for="field1">Tu nombre de usuario</label>
                     <input name="username" type="text" class="form-control" id="field1">
@@ -20,16 +19,13 @@
                     <input name="email" type="email" class="form-control" id="field2">
                 </div>
                 <div class="form-group">
-                    <label for="field3">Mensaje para el vendedor</label>
+                    <label for="field3">Mensaje para {{buyProduct.creator.username}}</label>
                     {{!-- <input name="message" type="textarea" class="form-control message-field" id="field3"> --}}
                     <textarea name="message" class="form-control message-field" id="field3" ></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-login btn-success btn-block btn-lg">Reservar producto</button>
-
+                <button type="submit" class="btn btn-login btn-success btn-block btn-lg">Contactar con el vendedor</button>
             </form>
 
         </div>
     </div>
-
-<p>{{user.email}}</p>
