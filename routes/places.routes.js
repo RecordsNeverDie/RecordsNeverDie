@@ -6,8 +6,7 @@ const User = require('../models/user.model')
 
 router.get('/', (req,res) => {
     Place.find()
-    .then(allPlaces => {
-        res.render('places/places-index', {places: allPlaces, user: req.user})})
+    .then(allPlaces => res.render('places/places-index', {places: allPlaces, user: req.user}))
     .catch(err => console.log(`Ha ocurrido un error en el listado de lugares: ${err}`)) 
 })
 
@@ -47,10 +46,7 @@ router.post('/new', (req,res, next) => {
     })
     
     Place.create(newPlace)
-    .then((placeCreated) => {
-        console.log(placeCreated)
-        return User.findByIdAndUpdate(req.user._id, {$push: {store: placeCreated._id}})
-        })
+    .then((placeCreated) => User.findByIdAndUpdate(req.user._id, {$push: {store: placeCreated._id}}))
        .then(() => res.redirect('/places'))
 
     .catch(err => console.log(`Ha ocurrido un error creando el lugar: ${err}`)) 
@@ -81,7 +77,7 @@ router.post('/edit/:id', (req, res, next) => {
     }
 
     Place.findByIdAndUpdate(placeId, newPlace, { new: true })
-    .then(updatedPlace => res.redirect('/places'))
+    .then(() => res.redirect('/places'))
     .catch(err => console.log(`Ha ocurrido un error actualizando el lugar: ${err}`)) 
 })
 

@@ -44,7 +44,7 @@ h1, h2, h3 {
     font-size: 6em;
     padding-top: 250px; }
   .home p {
-    font-size: 2em; }
+    font-size: 1.8em; }
 
 .signup {
   margin: 50px auto;
@@ -85,13 +85,19 @@ h1, h2, h3 {
       object-position: center; }
 
 .product-details {
-  margin-top: 50px; }
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 25px;
+  border-radius: 5px; }
   .product-details h4 {
     margin: 20px; }
   .product-details .btn-buy {
     text-transform: uppercase; }
   .product-details .btn-edit {
     margin: 10px; }
+
+.img-detail {
+  width: 300px; }
 
 .product-index img {
   width: 400px; }
@@ -116,6 +122,10 @@ h1, h2, h3 {
   width: 100%;
   height: 300px;
   background-color: grey; }
+
+h1 {
+  font-weight: 600;
+  margin: 20px; }
 
 .place {
   margin-bottom: 25px; }
@@ -143,12 +153,11 @@ h1, h2, h3 {
   margin-bottom: 15px; }
 
 .profile-pic {
-  width: 300px;
+  width: 250px;
   border-radius: 5px;
-  margin-left: 100px; }
+  margin-left: 230px; }
 
 .op-container {
-  margin-top: 100px;
   background-color: rgba(0, 0, 0, 0.4); }
 
 .option-container {
@@ -160,14 +169,14 @@ h1, h2, h3 {
   .option-container li {
     text-decoration: none;
     color: white;
-    list-style: none;
     font-size: 1.8em;
     font-weight: 700; }
   .option-container .img-options {
-    width: 150px;
-    margin-left: 200px; }
-  .option-container button {
-    margin-top: 20px;
-    margin-left: 200px; }
+    width: 100px;
+    margin-left: 120px; }
+
+.myPost {
+  padding: 20px;
+  border-radius: 5px; }
 
 /*# sourceMappingURL=style.css.map */

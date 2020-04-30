@@ -1,19 +1,16 @@
 <div class="container product-details">
-
-    <h1 class="title-view">{{product.title}}</h1>
-
     <div class="row details">
         <div class="col-md img-detail">
             <img class="img-detail" src='{{product.picture}}' alt="album cover">
         </div>
 
-        <div class="col-md">
+        <div class="col-md-8">
             <h2 class="title-view">{{product.title}}</h2>
             <h5><strong>Artista: </strong> {{product.artist}}</h5>
             <h5><strong>Descripción: </strong> {{product.description}}</h5>
             <h5><strong>Género: </strong> {{product.genre}}</h5>
             <h5><strong>Condición: </strong> {{product.condition}}</h5>
-            <h5><strong>Precio: </strong> {{product.price}}$</h5>
+            <h5><strong>Precio: </strong> {{product.price}}€</h5>
             {{#if isAuthor}}
             <a href="/shop/edit?id={{product.id}}" class="btn btn-light btn-edit">Editar</a>
             <form method="POST" action="/shop/{{product.id}}/delete">
@@ -28,11 +25,11 @@
         </div>
     </div>
 
-
+    {{#unless isAuthor}}
     <form method="GET" action="/shop/buy/{{product.id}}">
         <button type="submit" class="btn btn-buy btn-success btn-back btn-block">Comprar</button>
     </form>
-
+    {{/unless}} 
 </div>
     <a href="/shop" class="btn btn-back btn-light">Volver a la tienda</a>
     <input id="productId" name="productId" type="hidden" value="{{product.id}}">

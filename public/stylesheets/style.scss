@@ -64,7 +64,7 @@ h1, h2, h3 {
   }
 
   p {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
 // --- AUTH ------
@@ -123,6 +123,9 @@ h1, h2, h3 {
 }
   .product-details {
     margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 5px;
 
     h4 {
       margin: 20px;
@@ -133,6 +136,9 @@ h1, h2, h3 {
     .btn-edit {
       margin: 10px;
     }
+  }
+  .img-detail {
+    width: 300px;
   }
 
   .product-index{
@@ -170,7 +176,10 @@ h1, h2, h3 {
   height: 300px;
   background-color: grey;
 }
-
+h1 {
+  font-weight: 600;
+  margin: 20px ;
+}
 .place {
   margin-bottom: 25px;
 
@@ -209,19 +218,17 @@ h1, h2, h3 {
 // -- PROFILE ----
 
 .profile-pic {
-  width: 300px;
+  width: 250px;
   border-radius: 5px;
-  margin-left: 100px;
+  margin-left: 230px;
 
 }
-
 .op-container {
-  margin-top: 100px;
   background-color: rgba(0, 0, 0, 0.4);
 }
 .option-container {
   margin: 30px;
-  
+
   h1 {
     padding: 25px;
     font-weight: 700;
@@ -231,17 +238,17 @@ h1, h2, h3 {
   li {
     text-decoration: none;
     color: white;
-    list-style: none;
     font-size: 1.8em;
     font-weight: 700;
   }
+
   .img-options {
-    width: 150px;
-    margin-left: 200px;
+    width: 100px;
+    margin-left: 120px;
   }
-  button {
-    margin-top: 20px;
-    margin-left: 200px;
-  }
+}
+.myPost {
+  padding: 20px;
+  border-radius: 5px;
 }
 

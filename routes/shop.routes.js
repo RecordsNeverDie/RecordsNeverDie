@@ -34,10 +34,7 @@ router.post("/new", cloudUploader.single('imageFile'), (req, res, next) => {
     })
 
     Product.create(newProduct)
-        .then((productCreated) => {
-            console.log(productCreated)
-            return User.findByIdAndUpdate(req.user._id, { $push: { vinyl: productCreated._id } })
-        })
+        .then((productCreated) => User.findByIdAndUpdate(req.user._id, { $push: { vinyl: productCreated._id } }))
         .then(() => res.redirect('/shop'))
         .catch(err => console.log(`Ha ocurrido un error creando el producto: ${err}`))
 
@@ -87,7 +84,11 @@ router.get("/details/:id", (req, res) => {
                     isAuthor = true
                 }
             }
-            res.render("shop/shop-details", { product, user: req.user, isAuthor })
+            // let isUser = false
+            // if (req.user && product.creator) {
+            //     isUser = false
+            // }
+            res.render("shop/shop-details", { product, user: req.user, isAuthor})
         })
 
         .catch(err => console.log(`An error ocurred: ${err}`))
