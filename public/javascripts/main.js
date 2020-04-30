@@ -31,7 +31,7 @@ function getPin(apiUrl) {
                     animation: google.maps.Animation.DROP,
                     map: myMap,
                     title: elm.name,
-                   // icon: "https://files.slack.com/files-pri/T0108LT3D6Z-F013J41LQ4Q/download/discos-compactos.svg"
+                    icon: "/images/icon_vinyl.png"
                 })
                 
             })
