@@ -75,7 +75,7 @@ h1, h2, h3 {
     background-color: none; }
     .shop-index .products .card-product {
       color: black;
-      background-color: white;
+      background: linear-gradient(to right, white 0%, #f6f6f6 47%, #ededed 100%);
       justify-content: center; }
     .shop-index .products .btn-product {
       font-weight: 600; }

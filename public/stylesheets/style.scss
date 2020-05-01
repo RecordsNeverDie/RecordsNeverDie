@@ -108,8 +108,7 @@ h1, h2, h3 {
     
     .card-product {
       color: black;
-      background-color: white;
-      //background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); //Para probarlo hay que descomentar este y comentar la linea de arriba
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
       justify-content: center;
       
     }
