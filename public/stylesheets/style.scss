@@ -14,6 +14,58 @@ h1, h2, h3 {
   font-size: 2.5em;
 
 }
+// ---- HOVERS ---
+
+.btn-new:hover {
+    background-color: rgb(49, 136, 186 );
+    color: white;
+    border: rgb(49, 136, 186 );
+  }
+.btn-back:hover {
+  background-color: rgb(49, 136, 186 );
+  color: white;
+  border: rgb(49, 136, 186 );
+}
+.myItems:hover {
+  color: rgb(91, 189, 203);
+}
+.btn-see:hover {
+  background-color: rgb(49, 136, 186);
+  color: white;
+  border: rgb(49, 136, 186 );
+}
+.btn-home:hover {
+  background-color: rgb(49, 136, 186);
+  color: white;
+  border: rgb(49, 136, 186 );
+}
+.btn-del:hover {
+  background-color: rgb(169, 31, 31);
+  color: white;
+  border: rgb(169, 31, 31);
+}
+
+.btn-buy:hover {
+  font-size: 1.5em;
+}
+
+.logo-img:hover {
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+} 
+
+
+
+
+
 
 #errorMsg {
   background-color: red;
@@ -47,12 +99,12 @@ h1, h2, h3 {
     letter-spacing: 1px;
     font-weight: 700;
     margin: 0 10px;
-
-    :hover {
-      text-decoration: underline;  
+    
+    :hover{
+      font-size: 1.3em;
     }
   }
-
+  
   .logo-img {
     margin-right: 10px;
   }
@@ -74,6 +126,12 @@ h1, h2, h3 {
     font-size: 1.8em;
   }
 }
+.btn-home {
+  font-size: 2em;
+  padding: 10px 30px;
+  font-weight: 600;
+  margin: 10px;
+}
 // --- AUTH ------
 .signup {
   margin: 50px auto;
@@ -83,6 +141,11 @@ h1, h2, h3 {
 
   .btn-signup {
     font-weight: 600;
+  }
+  .btn-signup:hover{
+    background-color: rgb(49, 136, 186 );
+    color: white;
+    border: rgb(49, 136, 186 );
   }
 }
 
@@ -95,6 +158,11 @@ h1, h2, h3 {
   .btn-login {
     font-weight: 600;
   }
+  .btn-login:hover {
+    background-color: rgb(49, 136, 186 );
+    color: white;
+    border: rgb(49, 136, 186 );
+  }
 }
 
 .form-control {
@@ -102,7 +170,6 @@ h1, h2, h3 {
   border: none;
   border-radius: none;
   color:white;
-
 }
 
 // ------ SHOP -------
@@ -141,11 +208,13 @@ h1, h2, h3 {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 25px;
     border-radius: 5px;
+
     h4 {
       margin: 20px;
     }
     .btn-buy{
       text-transform: uppercase;
+      font-weight: 600;
     }
   }
   .img-detail {
@@ -172,7 +241,6 @@ h1, h2, h3 {
   font-size: 2em;
   font-weight: 600;
 }
-
 // -- PLACES --
 #myMap {
   justify-content: center;

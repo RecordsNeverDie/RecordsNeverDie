@@ -8,7 +8,7 @@
         <h1 class="text-light text-center">Mis tiendas</h1>
         {{#each user.store}}
         <ul class="profile-places">
-            <a href="/places/details/{{_id}}"><li>{{name}}</li></a>
+            <a class="myItems" href="/places/details/{{_id}}"><li class="myItems">{{name}}</li></a>
         </ul>
         {{/each}}
         <a href="/places/new"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
@@ -21,15 +21,10 @@
 
         {{#each user.vinyl}}
         <ul>
-            <a href="/shop/details/{{_id}}"><li>{{title}}</li></a>
+            <a class="myItems" href="/shop/details/{{_id}}"><li class="myItems">{{title}}</li></a>
         </ul>
         {{/each}}
         </div>
   <a href="/shop/new"><button type="button" class="btn btn-back btn-light btn-lg">Añadir más</button></a>
     </div>
-
-    {{!-- <div class="col-md-3 option-container">
-        <h1 class="text-light text-center">Añade tu album favorito</h1>
-        <a href="/music"><button type="button" class="btn btn-back btn-light btn-lg">Escuchar</button></a>
-    </div> --}}
 </div>
