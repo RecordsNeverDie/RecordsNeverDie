@@ -28,6 +28,12 @@ h1, h2, h3 {
   font-weight: 700; }
   .navbar .navbar-brand {
     font-size: 1.5em; }
+  .navbar .logo-navbar {
+    font-size: 2em;
+    font-weight: 100;
+    font-family: 'Alfa Slab One', cursive;
+    letter-spacing: 5px;
+    color: #9c2035; }
   .navbar li {
     letter-spacing: 1px;
     font-weight: 700;
@@ -40,7 +46,8 @@ h1, h2, h3 {
 .home {
   text-align: center; }
   .home h1 {
-    font-weight: 700;
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: 400;
     font-size: 6em;
     padding-top: 250px; }
   .home p {
@@ -84,6 +91,13 @@ h1, h2, h3 {
       object-fit: cover;
       object-position: center; }
 
+.btn-edit {
+  margin: 20px;
+  margin-left: 100px; }
+
+.btn-del {
+  margin: 20px; }
+
 .product-details {
   margin-top: 50px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -93,8 +107,6 @@ h1, h2, h3 {
     margin: 20px; }
   .product-details .btn-buy {
     text-transform: uppercase; }
-  .product-details .btn-edit {
-    margin: 10px; }
 
 .img-detail {
   width: 300px; }
@@ -111,6 +123,10 @@ h1, h2, h3 {
     width: 50%;
     margin: 20px 0; }
 
+.price {
+  font-size: 2em;
+  font-weight: 600; }
+
 #myMap {
   justify-content: center;
   width: 100%;
@@ -125,13 +141,51 @@ h1, h2, h3 {
 
 h1 {
   font-weight: 600;
-  margin: 20px; }
+  margin: 50px 0 30px 0; }
+
+h2 {
+  font-size: 3em;
+  font-weight: 600;
+  margin: 20px 0; }
+
+span {
+  font-style: italic; }
+
+.row-places {
+  margin-top: 50px; }
+
+.place-all {
+  font-size: 1.2em; }
+
+.place-edit {
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.place-new {
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.place-detail-container {
+  margin: 50px auto;
+  border-radius: 15px;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .place-detail-container img {
+    width: 250px; }
+
+.edit-btn {
+  margin-left: 10px; }
 
 .place {
   margin-bottom: 25px; }
   .place h4 {
     text-align: center;
-    font-weight: 600; }
+    font-weight: 600;
+    font-size: 1.8em; }
 
 .star {
   width: 18px;
@@ -151,6 +205,10 @@ h1 {
 
 .input-localization {
   margin-bottom: 15px; }
+
+.description-place {
+  font-size: 1.7em;
+  font-weight: 600; }
 
 .profile-pic {
   width: 250px;
