@@ -1,4 +1,4 @@
-# RecordsNeverDie
+# RecordsNeverDie :cd:
 
 ## Referencia de endpoints
 
