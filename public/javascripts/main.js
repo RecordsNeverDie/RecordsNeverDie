@@ -8,27 +8,15 @@ window.onload = () => {
     } 
         
         myMap = new google.maps.Map(document.getElementById('myMap'), {
-            zoom: 13,
+            zoom: 14,
             center,
             styles: mapStyles.silver
         })
     
-    // myMap.addListener('center_changed', function () {
-    //     // 3 seconds after the center of the map has changed, pan back to the
-    //     // marker.
-    //     window.setTimeout(function () {
-    //         myMap.panTo(AQUIVAELMARKER.getPosition());
-    //     }, 3000);
-    // });
-
-    // AQUIVAELMARKER.addListener('click', function () {
-    //     myMap.setZoom(8);
-    //     myMap.setCenter(AQUIVAELMARKER.getPosition());
-    // })
-
     getPin('/places/api')
 }
 
+let markers = []
 
 function getPin(apiUrl) {
     axios
@@ -40,14 +28,16 @@ function getPin(apiUrl) {
                 lat: elm.location.coordinates[0],
                 lng: elm.location.coordinates[1]
             }
-            new google.maps.Marker({
-                position: center,
-                animation: google.maps.Animation.DROP,
-                map: myMap,
-                title: elm.name,
-                icon: "/images/icon_vinyl.png"
-            })
-            
+            setTimeout(() => {
+                new google.maps.Marker({
+                    position: center,
+                    animation: google.maps.Animation.DROP,
+                    map: myMap,
+                    draggable: false,
+                    title: elm.name,
+                    icon: "/images/icon_vinyl.png"
+                })
+            }, Math.random(0.25, 1.25) * 3000) 
         })
     })
     
