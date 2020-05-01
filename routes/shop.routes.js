@@ -84,11 +84,7 @@ router.get("/details/:id", (req, res) => {
                     isAuthor = true
                 }
             }
-            // let isUser = false
-            // if (req.user && product.creator) {
-            //     isUser = false
-            // }
-            res.render("shop/shop-details", { product, user: req.user, isAuthor})
+            res.render("shop/shop-details", { product, user: req.user, isAuthor })
         })
 
         .catch(err => console.log(`An error ocurred: ${err}`))
@@ -109,15 +105,20 @@ router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
 
 router.post("/buy/:id", (req, res, next) => {
 
-    let { username, email, message, title, artist, creatorEmail } = req.body
+    let { username, email, picture, message, title, artist, creatorEmail, creatorName } = req.body
 
     mailer.sendMail({
         from: '"Records Never Die 📀" <recordsneverdie@gmail.com>',
         to: creatorEmail,
         subject: `Hay un usuario interesado en tu producto ${title} de ${artist}`,
-        text: `El usuario ${username} está interesado en tu album, aquí su mensjae:
-            ${message}. Puedes contactar con él a través del siguiente email: ${email}`,
-        html: `<b>El usuario ${username} está interesado en tu album, aquí su mensaje:${message}. Puedes contactar con él a través del siguiente email: ${email}</b>`
+        text: `El usuario ${username} está interesado en tu album, aquí su mensaje:
+               ${message}. Puedes contactar con él a través del siguiente email: ${email}`,
+        html:  `<h1>Records Never Die</h1>
+                <h3>¡Hola ${creatorName}! el usuario ${username} está interesado en tu album ${title} de ${artist}, y te ha dejado un mensaje:</h2>
+                <p><em>"${message}"</em></p>
+                <div><img style="width: 300px" src="${picture}"</div>
+                <h4>Aquí tienes su email: ${email}, por favor, ¡contacta cuanto antes!</h4>
+                <h3>¡Gracias por utilizar nuestra web!</h3>`
     })
         .then(() => res.redirect(`/shop/shop-success`))
         .catch(error => console.log(error));

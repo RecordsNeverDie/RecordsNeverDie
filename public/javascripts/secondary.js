@@ -36,4 +36,3 @@ function getAlbumPin(apiUrl) {
         })
         .catch (error => console.log(error))
 }
-
