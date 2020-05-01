@@ -20,7 +20,6 @@ require('./configs/locals.config')(app)
 // Base URLS
 app.use('/', require('./routes/index.routes'))
 app.use('/', require('./routes/auth.routes'))
-app.use('/music', require('./routes/music.routes'))
 app.use('/places', require('./routes/places.routes'))
 app.use('/shop', require('./routes/shop.routes'))
 
