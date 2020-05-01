@@ -110,7 +110,6 @@ router.get("/buy/:id", ensureLogin.ensureLoggedIn(), (req, res) => {
 router.post("/buy/:id", (req, res, next) => {
 
     let { username, email, message, title, artist, creatorEmail } = req.body
-    console.log(username, email, message)
 
     mailer.sendMail({
         from: '"Records Never Die 📀" <recordsneverdie@gmail.com>',
@@ -120,8 +119,15 @@ router.post("/buy/:id", (req, res, next) => {
             ${message}. Puedes contactar con él a través del siguiente email: ${email}`,
         html: `<b>El usuario ${username} está interesado en tu album, aquí su mensaje:${message}. Puedes contactar con él a través del siguiente email: ${email}</b>`
     })
-        .then(() => res.redirect('/shop'))
+        .then(() => res.redirect(`/shop/shop-success`))
         .catch(error => console.log(error));
+})
+
+router.get("/shop-success", (req, res) => {
+    Product.findById(req.params.id)
+        .populate("creator")
+        .then(buyProduct => res.render("shop/shop-success", { buyProduct, user: req.user }))
+        .catch(err => console.log(`An error ocurred updating the place: ${err}`))
 })
 
 router.get('/details/:id/api', (req, res, next) => {

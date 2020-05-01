@@ -115,8 +115,9 @@ h1, h2, h3 {
 
     .card-product {
       color: black;
-      background-color: white;
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
       justify-content: center;
+      
     }
     .btn-product {
       font-weight: 600;
@@ -307,3 +308,31 @@ span {
   border-radius: 5px;
 }
 
+.success {
+  text-align: center;
+  margin: 100px auto;
+
+  h1{
+    margin-bottom: 20px;
+  }
+
+  h2{ 
+    margin: 30px;
+  }
+
+  h3{
+    margin: 30px;
+  }
+
+  a {
+    background-color: rgb(226, 225, 225);
+    color: rgb(34, 34, 34);
+  }
+
+  a:hover{
+    transition: .3s;
+    font-size: 1.3em;
+    background-color: rgb(57, 145, 57);
+    color: rgb(226, 225, 225);
+  }
+}

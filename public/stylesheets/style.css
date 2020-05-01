@@ -82,7 +82,7 @@ h1, h2, h3 {
     background-color: none; }
     .shop-index .products .card-product {
       color: black;
-      background-color: white;
+      background: linear-gradient(to right, white 0%, #f6f6f6 47%, #ededed 100%);
       justify-content: center; }
     .shop-index .products .btn-product {
       font-weight: 600; }
@@ -236,5 +236,23 @@ span {
 .myPost {
   padding: 20px;
   border-radius: 5px; }
+
+.success {
+  text-align: center;
+  margin: 100px auto; }
+  .success h1 {
+    margin-bottom: 20px; }
+  .success h2 {
+    margin: 30px; }
+  .success h3 {
+    margin: 30px; }
+  .success a {
+    background-color: #e2e1e1;
+    color: #222222; }
+  .success a:hover {
+    transition: .3s;
+    font-size: 1.3em;
+    background-color: #399139;
+    color: #e2e1e1; }
 
 /*# sourceMappingURL=style.css.map */
